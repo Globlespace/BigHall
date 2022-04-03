@@ -23,6 +23,7 @@ abstract class Model
     public static function Connection()
     {
         try {
+            mysqli_report(MYSQLI_REPORT_OFF);
             $con = new \mysqli(DB_HOST . DB_PORT, DB_USER, DB_PASS, DB_NAME);
             return $con;
         } catch (\mysqli_sql_exception $err) {
@@ -82,7 +83,7 @@ abstract class Model
     public function chunk($limit)
     {
         $query = "select * from " . $this->table . " limit $limit";
-        echo $query;exit();
+
         $this->result = mysqli_query($this->con, $query);
     }
 

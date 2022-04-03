@@ -11,7 +11,7 @@ class Categories extends controller
 {
     function categoriesView(){
 
-        $this->view(CategoriesController."Categories");
+        $this->view(Categories."Categories");
     }
     function CategoryGetById(Request $request){
         $CatModel=new Category();
@@ -42,10 +42,11 @@ class Categories extends controller
     function CategoryInsert(Request $request){
         $CatModel=new Category();
         $this->fillData($request,$CatModel);
-        if($CatModel->InsertCategory()){
-            $CatModel->Message="inserted Successfully";
+        $CatModel->InsertCategory();
+        if($CatModel->mysql_error_no==1062){
+            $CatModel->Message="Category is already in Database";
         }else{
-            $CatModel->Message="SomeThing Went Wrong ";
+            $CatModel->Message="Category Created Successfully";
         }
         $CatModel->Json();
     }
@@ -53,6 +54,8 @@ class Categories extends controller
         $CatModel=new Category();
         $this->fillData($request,$CatModel);
         $CatModel->update("id=".$request->id);
+        $CatModel->Success=true;
+        $CatModel->Message="Category Updated Successfully";
         $CatModel->Json();
     }
     function CategoryDelete(Request $request){
@@ -60,6 +63,7 @@ class Categories extends controller
         $CatModel->id=$request->id;
         $CatModel->delete();
         $CatModel->Success=true;
+        $CatModel->Message="Category Deleted Successfully";
         $CatModel->Json();
     }
     function fillData(Request &$From, Model &$To)
