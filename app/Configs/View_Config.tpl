@@ -3,6 +3,7 @@
 
     define('User','User'.DS);
     define('Home',User.'Home'.DS);
+    define('Category',User.'Category'.DS);
 
 
 

@@ -4,6 +4,7 @@
     /******************************User Controllers **************/
     define('UserController','User\\');
     define('HomeController',UserController.'Home\\');
+    define('CategoryController',UserController.'Category\\');
 
 
     /**************************admin Controllers*******************/
