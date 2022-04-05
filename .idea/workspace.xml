@@ -2,32 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a991d73a-ddfd-4bfb-a3e4-0f4381f03348" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Controller/User/Home/Home.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Model/FourGrid/FourGrid.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Model/Images/Images.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Model/Login/login.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Model/ProductType/product_type.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Model/Products/Product.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Model/ThreeGrid/ThreeGrid.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Script/User/Home.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Script/User/confirm.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Script/User/login.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Script/User/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Script/User/register.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Statuscodes.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Style/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/View/Layout/UserMain.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/View/User/404.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/View/User/Confirm.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/View/User/Home/Home.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/View/User/login.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/View/User/product.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Configs/Controller_Config.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/app/Configs/Controller_Config.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Configs/View_Config.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/app/Configs/View_Config.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Controller/Admin/Categories/Categories.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Controller/Admin/Categories/Categories.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Controller/Admin/Products/Products.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Controller/Admin/Products/Products.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Model/Model.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Model/Model.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -55,6 +30,7 @@
           <entry key="httaccess" value="1" />
           <entry key="js" value="5" />
           <entry key="php" value="35" />
+          <entry key="sql" value="1" />
           <entry key="tpl" value="5" />
         </counts>
       </usages-collector>
@@ -64,13 +40,14 @@
           <entry key="JavaScript" value="5" />
           <entry key="PHP" value="40" />
           <entry key="PLAIN_TEXT" value="1" />
+          <entry key="SQL" value="1" />
           <entry key="htaccess" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="js" value="484" />
-          <entry key="php" value="1443" />
+          <entry key="php" value="1450" />
           <entry key="tpl" value="206" />
           <entry key="txt" value="8" />
         </counts>
@@ -78,7 +55,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JavaScript" value="484" />
-          <entry key="PHP" value="1649" />
+          <entry key="PHP" value="1656" />
           <entry key="PLAIN_TEXT" value="8" />
         </counts>
       </usages-collector>
@@ -113,11 +90,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Controller/User/Home/Home.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="353">
-              <caret line="21" column="8" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="8" />
+            <state relative-caret-position="98">
+              <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
               <folding>
                 <element signature="e#42#72#0#PHP" expanded="true" />
               </folding>
@@ -149,11 +126,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/View/User/Home/Home.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="29" column="13" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
+            <state relative-caret-position="238">
+              <caret line="32" column="7" lean-forward="true" selection-start-line="32" selection-start-column="7" selection-end-line="32" selection-end-column="7" />
               <folding>
                 <element signature="n#section#0;n#main#0;n#!!top" />
                 <element signature="n#section#1;n#main#0;n#!!top" />
@@ -220,7 +197,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="120" />
     <option name="y" value="-17" />
     <option name="width" value="952" />
@@ -238,43 +215,6 @@
               <item name="BigHall" type="b2602c69:ProjectViewProjectNode" />
               <item name="BigHall" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="BigHall" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BigHall" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BigHall" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BigHall" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Model" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BigHall" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BigHall" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Script" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BigHall" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BigHall" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Script" type="462c0819:PsiDirectoryNode" />
-              <item name="User" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BigHall" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BigHall" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="View" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BigHall" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BigHall" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="View" type="462c0819:PsiDirectoryNode" />
-              <item name="Layout" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -289,17 +229,18 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\xampp\htdocs\BigHall\app" />
+      <recent name="D:\xampp\htdocs\BigHall\app\Controller\User\Home" />
+      <recent name="D:\xampp\htdocs\BigHall\app\Script\User" />
+      <recent name="D:\xampp\htdocs\BigHall\app\Style" />
+      <recent name="D:\xampp\htdocs\BigHall\app\View\User" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\xampp\htdocs\BigHall\app\View\User\Home" />
       <recent name="D:\xampp\htdocs\BigHall\app\Model\ProductType" />
       <recent name="D:\xampp\htdocs\BigHall\app\Model\Login" />
       <recent name="D:\xampp\htdocs\BigHall\app\Model\Images" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\xampp\htdocs\BigHall\app\Controller\User\Home" />
-      <recent name="D:\xampp\htdocs\BigHall\app\Script\User" />
-      <recent name="D:\xampp\htdocs\BigHall\app\Style" />
-      <recent name="D:\xampp\htdocs\BigHall\app\View\User" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -341,7 +282,7 @@
       <workItem from="1648787338037" duration="602000" />
       <workItem from="1648803581985" duration="4029000" />
       <workItem from="1648808193202" duration="13752000" />
-      <workItem from="1648961639607" duration="4181000" />
+      <workItem from="1648961639607" duration="6451000" />
     </task>
     <task id="LOCAL-00001" summary="htaccess">
       <created>1648641540416</created>
@@ -354,13 +295,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29140000" />
+    <option name="totallyTimeSpent" value="31410000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="736" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="736" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15885022" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15885022" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -373,7 +314,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.32890365" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.32890365" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -559,16 +500,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Controller/User/Home/Home.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="353">
-          <caret line="21" column="8" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="8" />
-          <folding>
-            <element signature="e#42#72#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Script/User/Home.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -625,14 +556,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/bighall.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/View/User/Home/Home.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="29" column="13" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
+        <state relative-caret-position="238">
+          <caret line="32" column="7" lean-forward="true" selection-start-line="32" selection-start-column="7" selection-end-line="32" selection-end-column="7" />
           <folding>
             <element signature="n#section#0;n#main#0;n#!!top" />
             <element signature="n#section#1;n#main#0;n#!!top" />
             <element signature="n#section#2;n#main#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Controller/User/Home/Home.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="98">
+          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+          <folding>
+            <element signature="e#42#72#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
