@@ -4,6 +4,8 @@
     use framework\Routing\Route;
 
     Route::get("/",HomeController."Home.index");
+    Route::get("/Category/?curi",CategoryController."Category.index");
+
     Route::get("/ThreeGrid/?from",HomeController."Home.ThreeGrid");
     Route::get("/FourGrid/?from",HomeController."Home.FourGrid");
 
