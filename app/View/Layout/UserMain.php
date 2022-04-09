@@ -16,10 +16,14 @@
 </script>
 <header class="header container">
     <i class="oc fas fa-bars"></i>
-    <nav class="full-nav closed">
+    <nav class="full-nav losed">
         <div class="nav">
             <i style="font-size: 1rem;" class="oc fas fa-times"></i>
             <ul class="nav-bar">
+                <li>
+
+                </li>
+                <li>cat</li>
                 <li>cat</li>
             </ul>
         </div>

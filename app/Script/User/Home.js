@@ -24,11 +24,25 @@ function LoadFourGrid() {
         }
     );
 }
+function LoadThreeAndFourGridRandomly() {
+    if(Math.round(Math.random())===0){
+        LoadThreeGrid();
+    }else {
+        LoadFourGrid();
+    }
+}
 function LoadGridData(target) {
-    if(target.scrollHeight-target.clientHeight===target.scrollTop){
+    if(target.scrollHeight-target.clientHeight<=target.scrollTop){
+        LoadThreeAndFourGridRandomly();
 
     }
 }
-
+function OnBodyScrollEventMaker(){
+   let body= document.querySelector("body");
+    body.addEventListener("scroll",function (event) {
+        LoadGridData(event.target);
+    });
+}
 LoadThreeGrid();
 LoadFourGrid();
+OnBodyScrollEventMaker();
