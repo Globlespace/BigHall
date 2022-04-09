@@ -5,6 +5,7 @@
     define('UserController','User\\');
     define('HomeController',UserController.'Home\\');
     define('CategoryController',UserController.'Category\\');
+    define('ProductsController',UserController.'Products\\');
 
 
     /**************************admin Controllers*******************/

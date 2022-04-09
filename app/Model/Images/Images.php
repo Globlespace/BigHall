@@ -1,12 +1,13 @@
 <?php
 
 
-namespace app\Model;
+namespace app\Model\Images;
 
+
+use app\Model\Model;
 
 class Images extends Model
 {
-    private $result,$i=0;
     public $Id,$image;
     public function get($pro_id)
     {

@@ -2,8 +2,9 @@
 namespace app\Model\Products;
 
 use app\Model\Categories\Category;
+use app\Model\Model;
 
-class Product extends \app\Model\Model
+class Product extends Model
 {
     function GetProducts($from){
         $query="select * from ".$this->table." ORDER BY id desc limit ".$from.",10;";
@@ -43,6 +44,24 @@ class Product extends \app\Model\Model
         }else{
             $this->Message="Product inserted Successfully";
         }
+    }
+    public function getbytags($tags){
+        $query=$this->makeTagQuery($tags);
+        $this->result=mysqli_query(Model::Connection(),$query);
+    }
+    private function makeTagQuery($tags){
+        $query="SELECT * FROM `products` where ";
+        $tags=trim($tags,",");
+        $count=1;
+        while($count!=0){
+            $tags=str_replace(",,",",","$tags",$count);
+        }
+        $tags=(explode(",",$tags));
+        foreach ($tags as $tag){
+            $query.="Tags like '%$tag%' or ";
+        }
+        $query=trim($query,"or ");
+        return $query;
     }
 
 }
