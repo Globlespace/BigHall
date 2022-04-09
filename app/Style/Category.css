@@ -1,3 +1,53 @@
-.head-line h2{
-    color: red;
+main{
+    display:flex;
+    flex-direction: row;
+    margin: 70px 0px 0px 200px;
+}
+.main-container{
+    display: flex;
+    flex-direction: column;
+}
+.con-heading-one{
+    display: flex;
+    flex-direction: row;
+    margin:0px 20px 5px 0;
+}
+.con-heading-one a {
+    margin:18px 0 0 15px;
+    font-size: 0.7rem;
+    cursor: pointer;
+    font-family: "Amazon Ember", Arial, sans-serif;
+    color:#007185
+}
+.product{
+    width: 260px;
+    height: 100%;
+}
+.product-img{
+    height: 10%;
+    margin-bottom: 10px;
+}
+.product-img img{
+    width: auto;
+    max-height: 100%;
+    object-fit: contain;
+}
+.product-rate{
+    margin-bottom: 8px;
+}
+.assign-price .price-whole{
+    font-size: 0.9rem;
+}
+.product-rate .assign-price .price-symbol{
+    font-size: 0.7rem;
+    position: relative;
+    top: -2px;
+}
+.product-name .assign-title {
+    display: block;
+    height: 30px;
+    overflow: hidden;
+}
+.checked{
+
 }
