@@ -26,7 +26,18 @@
                 <input id="Qty" required name="Qty"  class="j_Field form-field" min="0" type="number" placeholder="ProductType Qty">
             </div>
             <div class="row mt-2">
-                <input id="Product" required name="Product"  class="j_Field form-field" type="text" placeholder="Chose Product">
+                <select id="Product" required name="Product" class="j_Field form-field " >
+                    <option value="0">Select Product</option>
+                    <?php
+                    $ProModel=new \app\Model\Products\Product();
+                    $ProModel->get();
+                    while ($ProModel->next()){
+                        ?>
+                        <option value="<?=$ProModel->id?>"><?=$ProModel->Name?></option>
+                        <?php
+                    }
+                    ?>
+                </select>
             </div>
             <div class="row mt-2">
                 <input class="btn btn-outline-primary mr-5" type="submit" value="Submit">
@@ -46,8 +57,10 @@
                 <div class="tr">
                     <div>Id</div>
                     <div>Name</div>
-                    <div>Slug</div>
-                    <div>Description</div>
+                    <div>Price</div>
+                    <div>Offer</div>
+                    <div>Qty</div>
+                    <div>Product</div>
                     <div>Update | Delete</div>
                 </div>
             </div>

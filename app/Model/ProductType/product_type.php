@@ -1,35 +1,42 @@
 <?php
 
 
-namespace app\Model;
+namespace app\Model\ProductType;
 
+
+use app\Model\Model;
 
 class product_type extends Model
 {
-    private $i=0,$result;
-    public $Id,$name,$price,$offer,$Qty;
-    public function get($pro_id,$orderby=0)
-    {
-        $query="SELECT * FROM `product_types` where Pro_Id='$pro_id' ORDER by Price ASC ;";
-        if($orderby !=0 ){
-            $query="SELECT * FROM `product_types` where Pro_Id='$pro_id' && Id='$orderby'";
+    function GetProducts($from){
+        $query="select * from ".$this->table." ORDER BY id desc limit ".$from.",10;";
+        $this->query($query);
+
+        while ($this->next()){
+            $CatModel=new Category();
+            $CatModel->get("id",$this->Catid);
+            $CatModel->next();
+            ?>
+            <div class="tr">
+                <div id="notedittable" name="cid"><?=$this->id?></div>
+                <div name="cname"><?=$this->Name?></div>
+                <div name="uri"><?=$this->URI?></div>
+                <div id="description" name="Description"><?=$this->Description?></div>
+                <div name="Details"><?=$this->Details?></div>
+                <div name="Catid"><?=$CatModel->Name?></div>
+                <div name="Tags"><?=$this->Tags?></div>
+                <div class="relative">
+                    <button onclick="EditData(<?=$this->id?>)" data-title="Edit This Row" class="updaterow btn btn-outline-primary">
+                        <i class="fa fa-pencil-square-o"></i>
+                    </button>
+                    <button data-title="Click to Delete" onclick="Delete(<?=$this->id?>)" class="delete btn btn-outline-danger">
+                        <i class="fa fa-trash-o"></i>
+                    </button>
+                </div>
+            </div>
+            <?php
         }
 
-        $result=mysqli_query(Model::Connection(),$query);
-        $this->result=$result;
-        $this->i=0;
     }
-    public function next(){
-        if(mysqli_num_rows($this->result) > $this->i){
-            $row=mysqli_fetch_assoc($this->result);
-            $this->Id=$row["Id"];
-            $this->name=$row["Name"];
-            $this->price=$row["Price"];
-            $this->offer=$row["Offer"];
-            $this->Qty=$row["Qty"];
-            $this->i++;
-            return true;
-        }
-        return false;
-    }
+
 }

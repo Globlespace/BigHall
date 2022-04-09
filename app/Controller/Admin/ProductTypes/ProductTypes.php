@@ -20,7 +20,7 @@ class ProductTypes extends controller
                 <div id="notedittable" name="cid"><?=$i?></div>
                 <div name="cname">ss</div>
                 <div id="notedittable" name="csname">ss</div>
-                <div id="description" name="description">lllhjh gdfgdsdgsd dfgsfdg dfgfdgdfg fdgdfgdfgdf gdfgdgdfgdfgf dgdfhjlkh</div>
+                <div id="description" name="description"></div>
                 <div class="relative">
                     <button data-title="Update your changes" class="updaterow btn btn-outline-primary">
                         <i class="fa fa-pencil-square-o"></i>
