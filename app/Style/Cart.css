@@ -1,0 +1,142 @@
+.cart-head-line{
+    display: flex;
+    justify-content: center;
+    align-items:center ;
+    height: 150px;
+    background-color: #ededed;
+}
+.cart-head-line h1{
+    font-family: "Amazon Ember", Arial, sans-serif;
+}
+.cart-head-line h1 spam{
+    color:transparent;
+    text-shadow: 3px 0 3px #ff1d02;
+}
+.main-cart{
+    margin: 3.5rem;
+    width:60%;
+}
+.cart-product-list{
+    display:grid;
+    border: 1px  solid #ededed;
+    border-radius: 5px 5px 0 0;
+    padding: 1rem;
+    /*grid-template-columns:repeat(5,1fr);*/
+    grid-template-columns:150px 1fr 1fr 1fr 145px;
+    grid-template-rows:50px 1fr;
+}
+.product-head{
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+.product-head spam{
+    font-family: "Berlin Sans FB";
+    color: #7a7a7a;
+}
+.price-head{
+    grid-column-start: 4;
+    grid-column-end: 6;
+}
+.price-head spam{
+    font-family: "Berlin Sans FB";
+    color: #7a7a7a;
+}
+.quantity-head spam{
+    font-family: "Berlin Sans FB";
+    color: #7a7a7a;
+}
+.cart-product-img{
+    margin: 1rem 1rem 1rem 0;
+    width: 100px;
+}
+.cart-description{
+    margin: 1rem 1rem 1rem 0;
+}
+.cart-description .here-dis spam{
+    display: -webkit-box;
+    -webkit-line-clamp:1;
+    -webkit-box-orient: vertical;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-family: "Amazon Ember", Arial, sans-serif;
+    font-size: 0.9rem;
+}
+.cart-size{
+    margin-top: 0.5rem;
+}
+.c-size, .c-brand{
+    display: flex;
+}
+.c-size spam, .c-brand spam{
+    margin-left: 5px;
+}
+ .c-size h5,.c-size spam , .c-brand  h5,.c-brand spam{
+     display: flex;
+     flex-direction: column;
+    font-family: "Amazon Ember", Arial, sans-serif;
+    font-size: 0.8rem;
+    color: #7a7a7a;
+    font-weight: lighter;
+}
+ .cart-quantity{
+     margin-top: 1rem;
+ }
+ .quantity-dropdown{
+     padding:0.7rem 4rem 0.7rem 0.5rem;
+     border-radius: 5px;
+ }
+ .quantity-dropdown:focus{
+     outline: none;
+ }
+ .cart-total-price{
+     margin-top: 1rem;
+     display: flex;
+     align-items: flex-start;
+ }
+ .cart-each-price{
+     font-size: 0.8rem;
+     margin-top:5px;
+     color: rgba(122, 122, 122, 0.97);
+ }
+ .remove-button{
+     margin-top: 1rem;
+ }
+ .remove-button button{
+     padding:0.7rem 2rem 0.7rem 2rem;
+     border-radius: 5px;
+     border: 1px solid rgba(122, 122, 122, 0.97);
+ }
+ .remove-button button:hover{
+     background-color: #dedede;
+ }
+ .remove-button button:focus{
+     border-color: #ffa823 ;
+ }
+ .cart-main-bottom{
+     display: flex;
+     justify-content: space-between;
+     padding: 1.5rem 2.5rem 0 2.5rem;
+     border: 1px solid #ededed;
+     border-top: unset;
+     height: 100px;
+     border-radius: 0px 0px 5px 5px;
+ }
+.continue-shopping button ,.make-purchase button{
+    padding:0.7rem 1rem 0.7rem 1rem;
+    font-family: "Agency FB";
+    border-radius: 5px;
+    border:1px solid #7a7a7a;
+    font-size: 1rem;
+    font-weight:bold;
+}
+.make-purchase button{
+    background-color: rgb(0, 110, 255);
+    color: #ffffff;
+}
+.make-purchase button:hover{
+    background-color: rgb(2, 126, 255);
+}
+.continue-shopping button:hover{
+    background-color: #dedede;
+}

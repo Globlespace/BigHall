@@ -5,6 +5,7 @@
     define('Home',User.'Home'.DS);
     define('Category',User.'Category'.DS);
     define('Product',User.'Products'.DS);
+    define('Cart',User.'Cart'.DS);
 
 
 
