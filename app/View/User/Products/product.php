@@ -8,22 +8,23 @@
                 $product = new \app\Model\Products\Product();
                 $product_type = new \app\Model\ProductType\product_type();
                 $type = isset($_GET["pro_type"]) ? $_GET["pro_type"] : 1;
-                $product->get($Uri);
+                $product->getbyUri($Uri);
                 $product->next();
-                $product_type->get($product->Pro_Id, $type);
+                $product_type->getProductByIdAndProductId($product->id, $type);
                 $product_type->next();
-                echo $product->Pro_name;
+                echo $product->Name;
+
                 ?>
             </div>
             <div class="product-slider">
                 <?php
-                if ($product_type->offer > 0) {
+                if ($product_type->Offer > 0) {
                     echo '<div class="pro-offer">';
-                    echo $product_type->offer;
+                    echo $product_type->Offer;
                     echo '% off </div>';
                 }
                 $i = new \app\Model\Images\Images();
-                $i->get($product->Pro_Id);
+                $i->get($product->id);
                 while ($i->next()) {
                     ?>
                     <img src="<?= $i->image ?>" alt="">
@@ -48,14 +49,15 @@
                 <div class="product-varieties myslider-container">
                     <div class="myslider">
                         <?php
-                        $product_type->get($product->Pro_Id);
+                        $product_type->get("Pro_Id",$product->id);
+
                         while ($product_type->next()) {
                             ?>
                             <div class="myslider-item">
-                                <a href="<?= HTTP_HOST . 'product/' . $product->Pro_uri . '?pro_type=' . $product_type->Id ?>"
+                                <a href="<?= HTTP_HOST . 'product/' . $product->URI . '?pro_type=' . $product_type->Id ?>"
                                    class="product-variety <?= $type == $product_type->Id ? 'selected' : '' ?>">
-                                    <span><?= $product_type->name; ?></span>
-                                    <span class="price"><?= number_format($product_type->price);; ?></span>
+                                    <span><?= $product_type->Name; ?></span>
+                                    <span class="price"><?= ($product_type->Price);; ?></span>
                                     <span class="<?= $product_type->Qty > 0 ? 'instock' : 'outofstock' ?>">
                                         <?php
                                         if ($product_type->Qty > 0) {
@@ -80,9 +82,9 @@
                     <span>MRP:</span>
                     <span class="price">
                         <?php
-                        $product_type->get($product->Pro_Id, $type);
+                        $product_type->getProductByIdAndProductId($product->Id, $type);
                         $product_type->next();
-                        echo number_format($product_type->price);
+                        echo ($product_type->Price);
                         ?>
                     </span>
 
@@ -90,16 +92,16 @@
                 <div class="real-price">
                     <span class="price">
                         <?php
-                        $amount = $product_type->price - (($product_type->price / 100) * $product_type->offer);
-                        echo number_format($amount);
+                        $amount = $product_type->Price - (($product_type->Price / 100) * $product_type->Offer);
+                        echo ($amount);
                         ?>
                     </span>
                     <span class="save">
                         <span>Save</span>
                         <span class="price">
                             <?php
-                            $amount = (($product_type->price / 100) * $product_type->offer);
-                            echo number_format($amount);
+                            $amount = (($product_type->Price / 100) * $product_type->Offer);
+                           echo ($amount);
                             ?>
                         </span>
                     </span>
@@ -110,7 +112,7 @@
             <div class="section-style product-pricing">
                 <div>Details</div>
                 <table>
-                    <?= $product->Pro_Details ?>
+                    <?= $product->Details ?>
                 </table>
             </div>
             <div class="section-style buy-product">
@@ -118,8 +120,8 @@
                     <span>Total:</span>
                     <span class="price">
                         <?php
-                        $amount = ($product_type->price - (($product_type->price / 100) * $product_type->offer));
-                        echo number_format($amount);
+                        $amount = ($product_type->Price - (($product_type->Price / 100) * $product_type->Offer));
+                        echo ($amount);
                         ?></span>
                 </div>
                 <span class="<?= $product_type->Qty > 0 ? 'instock' : 'outofstock' ?>">
@@ -140,7 +142,7 @@
             <div class="section-style pro-disc">
                 <div class="pro-dis-head">Product Description</div>
                 <div class="discription">
-                    <?= $product->Pro_description ?>
+                    <?= $product->Description ?>
                 </div>
             </div>
         </div>
@@ -149,21 +151,21 @@
             <div class="myslider">
                 <?php
                 $youmaylikeProducts = new \app\Model\Products\product();
-                $youmaylikeProducts->getbytags($product->Pro_tag);
+                $youmaylikeProducts->getbytags($product->Tags);
                 while ($youmaylikeProducts->next()) {
-                    $i2 = new \app\Model\Images();
-                    $i2->get($youmaylikeProducts->Pro_Id);
+                    $i2 = new \app\Model\Images\Images();
+                    $i2->get($youmaylikeProducts->id);
                     $i2->next();
                     $product_type2 = new \app\Model\ProductType\product_type();
-                    $product_type2->get($youmaylikeProducts->Pro_Id);
+                    $product_type2->get($youmaylikeProducts->id);
                     $product_type2->next();
                     ?>
                     <div class="myslider-item">
                         <div class="YouMayAlsoLike">
                             <img src="<?= $i2->image ?>">
-                            <a href="<?= HTTP_HOST . "product/" . $youmaylikeProducts->Pro_uri ?>"
-                               class="product-name"><?= $youmaylikeProducts->Pro_name ?></a>
-                            <div class="price"><?= $product_type2->price ?></div>
+                            <a href="<?= HTTP_HOST . "product/" . $youmaylikeProducts->URI ?>"
+                               class="product-name"><?= $youmaylikeProducts->Name ?></a>
+                            <div class="price"><?= $product_type2->Price ?></div>
                         </div>
                     </div>
                     <?php

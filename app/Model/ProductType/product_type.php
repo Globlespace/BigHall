@@ -38,5 +38,13 @@ class product_type extends Model
         }
 
     }
+    public function getProductByIdAndProductId($pro_id,$orderby=0)
+    {
+        $query="SELECT * FROM `product_types` where Pro_Id='$pro_id' ORDER by Price ASC ;";
+        if($orderby !=0 ){
+            $query="SELECT * FROM `product_types` where Pro_Id='$pro_id' && Id='$orderby'";
+        }
+        $this->query($query);
+    }
 
 }
