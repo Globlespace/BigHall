@@ -63,5 +63,10 @@ class Product extends Model
         $query=trim($query,"or ");
         return $query;
     }
+    public function getbyUri($Uri)
+    {
+        $query="SELECT * FROM `products` where URI='$Uri';";
+        $this->result=mysqli_query(Model::Connection(),$query);
+    }
 
 }
