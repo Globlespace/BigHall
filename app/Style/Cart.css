@@ -140,3 +140,86 @@
 .continue-shopping button:hover{
     background-color: #dedede;
 }
+.continue-shopping button:focus{
+    border-color: #ffa823;
+}   
+.con-cart{
+    display: flex;
+}
+.coupon-add{
+    padding: 2rem;
+    margin-top: 3.5rem;
+    height: 150px;
+    border: 1px solid #ededed;
+    width: 25%;
+    border-radius: 5px;
+}
+.coupon-add spam{
+    font-family: Lucida;
+}
+.coupon-input-btn{
+    margin-top: 10px;
+    position: relative;
+}
+.coupon-input-btn input{
+    border-radius: 5px;
+    border: 1px solid #7a7a7a ;
+    padding: 0.6rem;
+    outline: none;
+    height: 40px;
+    width: 415px !important;
+}
+.coupon-btn{
+    border-radius: 0 5px 5px 0;
+    border: none;
+    background-color: rgb(0, 110, 255);
+    height: 40px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100px;
+    font-family: "Agency FB";
+    font-weight: bold;
+    color: white;
+}
+.coupon-btn:hover{
+    background-color: rgb(2, 126, 255);
+}
+.cart-price-div{
+    position: absolute;
+    top: 450px;
+    width: 20%;
+    right: 275px;
+}
+.cart-price-detail{
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    padding: 3rem;
+}
+.cart-total-price,.cart-price-discount,.last-total{
+    margin:10px ;
+}
+.cart-price-discount,.last-total{
+    display: flex;
+}
+.cart-total-price span{
+    margin-right: 60px;
+}
+.cart-price-discount span{
+    margin-right: 70px;
+}
+.last-total span{
+    margin-right: 100px;
+}
+.last-total{
+    padding-bottom: 30px;
+    border-bottom: 1px solid #c5c5c5;
+}
+.cart-cards-icon{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.cart-cards-icon img{
+    width:30px;
+}
