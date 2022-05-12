@@ -8,22 +8,19 @@ $(document).ready(function (){
             type: "POST",
             url: url,
             data: form.serialize(), // serializes the form's elements.
-            error:function (e){
-                console.log(e);
+            error:function (data){
+                data=JSON.parse(data.responseText);
+                $("#msg").addClass("error")
+                $("#msg").html(data.Message) // show response from the php script.
+                setTimeout( function (){
+                    $("#msg").removeClass("error");
+                    $("#msg").html('');
+                },3000);
             },
             success: function(data)
             {
-                console.log(data);
                 if(data.Success){
-                    location.href=url+"/Confirm/"+$(".email").val();
-                }else{
-                    console.log(data);
-                    $("#msg").addClass("error")
-                    $("#msg").html(data.Message) // show response from the php script.
-                    setTimeout( function (){
-                        $("#msg").removeClass("error");
-                        $("#msg").html('');
-                    },3000);
+                    location.href=HTTP+"Confirm/"+$(".email").val();
                 }
             }
         });

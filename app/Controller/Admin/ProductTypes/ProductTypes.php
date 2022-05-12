@@ -3,6 +3,8 @@
 namespace app\Controller\Admin\ProductTypes;
 
 use app\Controller\controller;
+use app\Model\Model;
+use app\Model\ProductType\product_type;
 use framework\Request\Request;
 
 class ProductTypes extends controller
@@ -11,36 +13,65 @@ class ProductTypes extends controller
 
         $this->view(ProductTypes."ProductTypes");
     }
-    function ProductTypesGet(){
-        $i=0;
-        while ($i<10){
-            $i++;
-            ?>
-            <div class="tr">
-                <div id="notedittable" name="cid"><?=$i?></div>
-                <div name="cname">ss</div>
-                <div id="notedittable" name="csname">ss</div>
-                <div id="description" name="description"></div>
-                <div class="relative">
-                    <button data-title="Update your changes" class="updaterow btn btn-outline-primary">
-                        <i class="fa fa-pencil-square-o"></i>
-                    </button>
-                    <button data-title="Click to Delete" class="delete btn btn-outline-danger">
-                        <i class="fa fa-trash-o"></i>
-                    </button>
-                </div>
-            </div>
-            <?php
-        }
-    }
-    function ProductTypeInsert(){
+    function ProductTypesGet(Request $request){
+        $ProModel=new product_type();
+        $ProModel->GetProductsTypes($request->values["from"]);
 
-        echo "i";
     }
-    function ProductTypeUpdate(){
-        echo "u";
+    function ProductTypesGetById(Request $request){
+        $ProModel=new product_type();
+        $ProModel->get($request->id);
+        if ($ProModel->next()){
+            $ProModel->Data=array(
+                "Id"=>$ProModel->Id,
+                "ProductType"=>$ProModel->Name,
+                "Price"=>$ProModel->Price,
+                "Description"=>$ProModel->Description,
+                "Offer"=>$ProModel->Offer,
+                "Qty"=>$ProModel->Qty,
+                "Pro_id"=>$ProModel->Pro_Id
+            );
+            $ProModel->Message="Product Type Found";
+
+            $ProModel->Success=true;
+            $ProModel->Code=200;
+        }else{
+            $ProModel->Success=false;
+            $ProModel->Message="No Product Found";
+            $ProModel->Code=404;
+        }
+
+        $ProModel->Json();
+    }
+    function ProductTypeInsert(Request $request){
+
+        $ProModel=new product_type();
+        $this->fillData($request,$ProModel);
+        $ProModel->InsertProductType();
+        $ProModel->Json();
+    }
+    function ProductTypeUpdate(Request $request){
+
+        $ProModel=new product_type();
+        $this->fillData($request,$ProModel);
+        $ProModel->update("id=".$request->id);
+        $ProModel->Success=true;
+        $ProModel->Message="Product Updated Successfully";
+        $ProModel->Json();
     }
     function ProductTypeDelete(Request $request){
-        echo "d";
+        $ProModel=new product_type();
+        $ProModel->Id=$request->id;
+        $ProModel->delete();
+        $ProModel->Success=true;
+        $ProModel->Message="Product Deleted Successfully";
+        $ProModel->Json();
+    }
+    function fillData(Request &$From, Model &$To)
+    {
+        parent::fillData($From, $To);
+        $To->Id=$From->values["id"];
+        $To->Name=$From->values["ProductType"];
+        $To->Pro_Id=$From->values["Product"];
     }
 }

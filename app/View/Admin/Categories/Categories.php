@@ -32,7 +32,7 @@
         <section class="container table-con mt-3 mb-3">
             <div class="warning mt-1 mb-1">
                 <i class="fa fa-warning"></i>
-                Warning! If You Delete Any Category  All Sub Categories, Products And Product Images Will Be Deleted Under That Category
+                Warning! If You Delete Any Category  All Products, Product Types And Product Images Will Be Deleted Under That Category!
             </div>
             <div class="table-header">Categories</div>
             <div  class="table">

@@ -5,31 +5,31 @@ namespace app\Model\ProductType;
 
 
 use app\Model\Model;
+use app\Model\Products\Product;
 
 class product_type extends Model
 {
-    function GetProducts($from){
+    function GetProductsTypes($from){
         $query="select * from ".$this->table." ORDER BY id desc limit ".$from.",10;";
         $this->query($query);
 
         while ($this->next()){
-            $CatModel=new Category();
-            $CatModel->get("id",$this->Catid);
-            $CatModel->next();
+            $ProModel=new Product();
+            $ProModel->get("id",$this->Pro_Id);
+            $ProModel->next();
             ?>
             <div class="tr">
-                <div id="notedittable" name="cid"><?=$this->id?></div>
-                <div name="cname"><?=$this->Name?></div>
-                <div name="uri"><?=$this->URI?></div>
-                <div id="description" name="Description"><?=$this->Description?></div>
-                <div name="Details"><?=$this->Details?></div>
-                <div name="Catid"><?=$CatModel->Name?></div>
-                <div name="Tags"><?=$this->Tags?></div>
+                <div id="notedittable" name="ptid"><?=$this->Id?></div>
+                <div id="name" name="ptname"><?=$this->Name?></div>
+                <div id="price" name="ptprice"><?=$this->Price?></div>
+                <div id="offer" name="ptprice"><?=$this->Offer?></div>
+                <div id="Qty" name="ptqty"><?=$this->Qty?></div>
+                <div id="Qty" name="ptqty"><?=$ProModel->Name?></div>
                 <div class="relative">
-                    <button onclick="EditData(<?=$this->id?>)" data-title="Edit This Row" class="updaterow btn btn-outline-primary">
+                    <button data-title="Update your changes" onclick="EditData(<?=$this->Id?>)" class="updaterow btn btn-outline-primary">
                         <i class="fa fa-pencil-square-o"></i>
                     </button>
-                    <button data-title="Click to Delete" onclick="Delete(<?=$this->id?>)" class="delete btn btn-outline-danger">
+                    <button data-title="Click to Delete" onclick="Delete(<?=$this->Id?>)" class="delete btn btn-outline-danger">
                         <i class="fa fa-trash-o"></i>
                     </button>
                 </div>
@@ -45,6 +45,15 @@ class product_type extends Model
             $query="SELECT * FROM `product_types` where Pro_Id='$pro_id' && Id='$orderby'";
         }
         $this->query($query);
+    }
+    function InsertProductType(){
+        $this->insert();
+        if($this->mysql_error_no==1062){
+            $this->Message="Product type is already in Database";
+
+        }else{
+            $this->Message="Product type inserted Successfully";
+        }
     }
 
 }

@@ -131,7 +131,7 @@
         private static function finallyUpload($ext){
             $renImage = self::renameFile($ext);
             $npath = date('Y') . DS . date('m') . DS . date('d');
-            $upath = UPLOAD_DIR.$npath;
+            $upath = UPLOAD_IMG_DIR.$npath;
             if(!file_exists($upath)){
                 mkdir($upath,0777,true);
             }

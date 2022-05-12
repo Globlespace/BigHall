@@ -1,4 +1,4 @@
-<?php include_once "Include/header.php";?>
+
 
 <main class="loginpage entry-form-main">
     <div class="entry-form">
@@ -16,4 +16,4 @@
     </div>
     <script src="<?=SCRIPT?>confirm.js" type="text/javascript"></script>
 </main>
-<?php include_once "Include/footer.php";?>
+

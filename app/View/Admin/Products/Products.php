@@ -21,7 +21,7 @@
             <div class="row mt-2" >
                 <input id="tags" required name="Tags" class="j_Field form-field mr-1" type="text" placeholder="Enter Product Tags">
                 <select id="Catid" required name="Catid" class="j_Field form-field " >
-                    <option value="0">Select Category</option>
+                    <option value="">Select Category</option>
                     <?php
                         $CatModel=new \app\Model\Categories\Category();
                         $CatModel->get();
@@ -55,7 +55,7 @@
     <section class="container table-con mt-3 mb-3">
         <div class="warning mt-1 mb-1">
             <i class="fa fa-warning"></i>
-            Warning! If You Delete Any Category  All Sub Categories, Products And Product Images Will Be Deleted Under That Category
+            Warning! If You Delete Any Product All Product Types And Product Images Will Be Deleted Under That Product!
         </div>
         <div class="table-header">Products</div>
         <div  class="table">

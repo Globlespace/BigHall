@@ -1,11 +1,13 @@
 <?php
 
-namespace app\Model;
+namespace app\Model\Login;
 
-class login extends Model{
+use app\Model\Model;
+
+class Login extends Model {
 
     function isAlreadyExist($email){
-        $query="SELECT * FROM `login` WHERE Email='$email';";
+        $query="SELECT * FROM `login` WHERE Email='$email' or NAME ='$email';";
         $result=mysqli_query(Model::Connection(),$query);
          if(mysqli_num_rows($result)>0){
              $this->message="Email is Already Exist";
@@ -23,11 +25,15 @@ class login extends Model{
         $query="SELECT * FROM `login` WHERE Email='$email' && Active='1';";
         $result=mysqli_query(Model::Connection(),$query);
         if(mysqli_num_rows($result)>0){
-            $this->message="Email is Already Activated";
-            $this->Code=112;
-            $this->success=false;
+            $this->Message="Email is Activated";
+            $this->Code=200;
+            $this->Success=true;
             return true;
         }
+        $this->Data["Email"]=$email;
+        $this->Message="Email is Not Activated Yet!";
+        $this->Code=403;
+        $this->Success=false;
         return false;
     }
     function activateUser($email, $code){
@@ -51,23 +57,19 @@ class login extends Model{
         return $row["Code"];
     }
     function login($email,$password){
-        $query="SELECT * FROM `login` WHERE Email='$email';";
+        $query="SELECT * FROM `login` WHERE Email='$email' or Name='$email';";
         $result=mysqli_query(Model::Connection(),$query);
 
         $row=mysqli_fetch_assoc($result);
         if(mysqli_num_rows($result)>0 && check($password,$row["Password"])){
             return true;
         }
-        $this->message="Invalid Email or Password";
-        $this->Code=113;
-        $this->success=false;
+        $this->Message="Invalid Email or Password";
+        $this->Code=401;
+        $this->Success=false;
         return false;
-
-
     }
-    function isLoggedin(){
 
-    }
 
 
 }

@@ -39,6 +39,7 @@ final class Route
             }
         }
         $Routing=new self();
+        $Routing->Request=new Request();
             if($isMatched){
                 if(!is_callable($call)){
                     $controller = $Routing->createobject($call);
@@ -161,7 +162,7 @@ final class Route
 
     }
     private function fillRequest(){
-        foreach ($_POST as $Key=>$Value){
+        foreach ($_REQUEST as $Key=>$Value){
             $this->Request->{$Key}=$Value;
         }
     }

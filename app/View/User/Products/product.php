@@ -7,11 +7,16 @@
 
                 $product = new \app\Model\Products\Product();
                 $product_type = new \app\Model\ProductType\product_type();
-                $type = isset($_GET["pro_type"]) ? $_GET["pro_type"] : 1;
+                $type = isset($_GET["pro_type"]) ? $_GET["pro_type"] : 0;
                 $product->getbyUri($Uri);
-                $product->next();
+                if(!$product->next()){
+                    header("Location: admin/404");
+                }
                 $product_type->getProductByIdAndProductId($product->id, $type);
-                $product_type->next();
+                if(!$product_type->next()){
+                   header("Location: admin/404");
+                }
+
                 echo $product->Name;
 
                 ?>
@@ -23,7 +28,7 @@
                     echo $product_type->Offer;
                     echo '% off </div>';
                 }
-                $i = new \app\Model\Images\Images();
+                $i = new \app\Model\Images\Image();
                 $i->get($product->id);
                 while ($i->next()) {
                     ?>
@@ -82,7 +87,8 @@
                     <span>MRP:</span>
                     <span class="price">
                         <?php
-                        $product_type->getProductByIdAndProductId($product->Id, $type);
+                        $product_type=new \app\Model\ProductType\product_type();
+                        $product_type->getProductByIdAndProductId($product->id, $type);
                         $product_type->next();
                         echo ($product_type->Price);
                         ?>
@@ -153,7 +159,7 @@
                 $youmaylikeProducts = new \app\Model\Products\product();
                 $youmaylikeProducts->getbytags($product->Tags);
                 while ($youmaylikeProducts->next()) {
-                    $i2 = new \app\Model\Images\Images();
+                    $i2 = new \app\Model\Images\Image();
                     $i2->get($youmaylikeProducts->id);
                     $i2->next();
                     $product_type2 = new \app\Model\ProductType\product_type();

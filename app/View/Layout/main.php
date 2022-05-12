@@ -61,29 +61,15 @@
             <a href="<?= HTTP_HOST?>admin/ProductTypes"><i class="fa fa-shopping-bag"></i>ProductTypes</a>
         </div>
         <div class="images">
-            <a href="<?= HTTP_HOST?>admin/proimages"><i class="fa fa-image"></i>Images</a>
+            <a href="<?= HTTP_HOST?>admin/ProImages"><i class="fa fa-image"></i>Images</a>
         </div>
         <div class="images">
             <a href="<?= HTTP_HOST?>admin/mailalluser"><i class="fa fa-envelope-o" aria-hidden="true"></i>Product Mail</a>
         </div>
-        <div class="quantity">
-            <a href="<?= HTTP_HOST?>admin/Quantity"><i class="fa fa-balance-scale"></i>Quantity</a>
-        </div>
         <div class="slider">
             <a href="<?= HTTP_HOST?>admin/sliders"><i class="fa fa-sliders"></i>Sliders</a>
         </div>
-        <div class="bestselling">
-            <a href="<?= HTTP_HOST?>admin/bestselling"><i class="fa fa-sliders"></i>Best Selling</a>
-        </div>
-        <div class="bestselling">
-            <a href="<?= HTTP_HOST?>admin/policies"><i class="fa fa-sliders"></i>Policies</a>
-        </div>
-        <div class="bestselling">
-            <a href="<?= HTTP_HOST?>admin/specification"><i class="fa fa-sliders"></i>Specifications</a>
-        </div>
-        <div class="bestselling">
-            <a href="<?= HTTP_HOST?>admin/supplier"><i class="fa fa-sliders"></i>Supplier</a>
-        </div>
+
         <div class="setting">
         <span onclick="opensetting()">
             <i class="fa fa-gear"></i>
@@ -126,32 +112,33 @@
                         <a href=""><i class="fa fa-envelope"></i></a>
                     </div>
                 </section>
-             <!--   <section class="profile-admin">
+              <section class="profile-admin">
                     <?php
-/*                    $adminloginModel=new \app\Model\adminlogin();
-                    $results=$adminloginModel->get(["admin_img","admin_username"]);
-                    */?>
+                   /*$adminloginModel=new \app\Model\adminlogin();
+                    $results=$adminloginModel->get(["admin_img","admin_username"]);*/
+                   $results=false;
+                    ?>
                     <div class="user-name"><?php
-/*                        if($results){
+                       if($results){
                             echo  $results[0]["admin_username"];
                         }
-                        */?></div>
+                        ?></div>
                     <div class="user">
                 <span onclick="openprofile()">
                     <img src="
                     <?php
-/*                    if($results){
+                    if($results){
                         echo UP_IMAGES.$results[0]["admin_img"];
                     }
-                    */?>" alt="user"/>
+                    ?>" alt="user"/>
                 </span>
                         <div class="user-details">
-                            <a href="<?/*=HTTP_HOST*/?>admin/profile"><i class="fa fa-user"></i>Profile</a>
-                            <a href="<?/*=HTTP_HOST*/?>admin/setting"><i class="fa fa-gear"></i>Setting</a>
-                            <a href="<?/*=HTTP_HOST*/?>adminLoginOut"><i class="fa fa-sign-out"></i>Logout</a>
+                            <a href="<?=HTTP_HOST?>admin/profile"><i class="fa fa-user"></i>Profile</a>
+                            <a href="<?=HTTP_HOST?>admin/setting"><i class="fa fa-gear"></i>Setting</a>
+                            <a href="<?=HTTP_HOST?>adminLoginOut"><i class="fa fa-sign-out"></i>Logout</a>
                         </div>
                     </div>
-                </section>-->
+                </section>
             </section>
         </header>
         <main class="main-page">
@@ -161,7 +148,7 @@
             <p>
                 Copyright ©<script>document.write(new Date().getFullYear());</script>
                 <i class="icon-heart text-danger" aria-hidden="true">
-                </i> by <a href="http://craftvera.com" target="_blank">Craftvera</a>
+                </i> by <a href="http://Bighall.com" target="_blank">BigHall</a>
             </p>
         </footer>
     </section>

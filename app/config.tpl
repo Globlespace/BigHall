@@ -13,11 +13,11 @@
     define('UPLOADS',HTTP_HOST.'app/Uploads/');
     define('UP_IMAGES',HTTP_HOST.'app/Uploads/Images/');
     define('UP_VIDEOS',HTTP_HOST.'app/Uploads/Videos/');
-    define('UPLOAD_DIR', __DIR__ . DS .DS);
-    define('VENDOR_DIR', __DIR__ . DS .DS);
-    define('INCLUDE_DIR',__DIR__.DS.'Uploads'.DS.'Images'.DS);
+    define('UPLOAD_DIR', __DIR__ . DS. 'Uploads' );
+    define('UPLOAD_IMG_DIR',UPLOAD_DIR . DS . 'Images'.DS);
+    define('INCLUDE_DIR',__DIR__.DS.''.DS.'Image'.DS);
     define('VIEW_DIR', __DIR__ . DS."View".DS);
-    define('VENDER_DIR',__DIR__.DS.'vender'.DS);
+    define('VENDOR_DIR',__DIR__.DS.'vender'.DS);
     define('LAYOUT_DIR',VIEW_DIR.'Layout'.DS);
     define('COMPONENTS_DIR',VIEW_DIR.'components'.DS);
     define('ADMIN_MAIL_HOST','');

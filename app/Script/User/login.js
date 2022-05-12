@@ -8,28 +8,30 @@ $(document).ready(function (){
             type: "POST",
             url: url,
             data: form.serialize(), // serializes the form's elements.
-            error:function (e){
-                console.log(e);
+            error:function (data){
+                data=JSON.parse(data.responseText);
+                $("#msg").addClass("error")
+                $("#msg").html(data.Message) // show response from the php script.
+                setTimeout( function (){
+                    $("#msg").removeClass("error");
+                    $("#msg").html('');
+                    switch (data.Code) {
+                        case 403:
+                            location.href=HTTP+"Confirm/"+data.Data.Email;
+                            break;
+                    }
+                },3000);
             },
             success: function(data)
             {
                 if(data.Success){
-                    $("#msg").addClass("success")
-                    $("#msg").html(data.Message) // show response from the php script.
+                    $("#msg").addClass("success");
+                    $("#msg").html(data.Message); // show response from the php script.
                     setTimeout( function (){
                         $("#msg").removeClass("success");
                         $("#msg").html('');
-                        location.href=$("#baseurl").val()
+                        location.href=HTTP;
                     },2000);
-                    console.log("data");
-                }else{
-                    console.log(data);
-                    $("#msg").addClass("error")
-                    $("#msg").html(data.Message) // show response from the php script.
-                    setTimeout( function (){
-                        $("#msg").removeClass("error");
-                        $("#msg").html('');
-                    },3000);
                 }
             }
         });

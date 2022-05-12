@@ -7,8 +7,9 @@
         </div>
     </div>
     <div class="form-container">
-        <form id="submit" onsubmit="return SubmitData(this);" class="addForm" action="<?=HTTP_HOST?>admin/ProductTypes" method="post">
+        <form id="submit"  class="addForm" action="<?=HTTP_HOST?>admin/ProductTypes" method="post">
             <input id="endpoint" type="hidden" value="0">
+            <input id="id" name="id" class="j_Field" type="hidden" value="0">
             <div class="row close-popup" >
                 <h3>Add ProductType</h3>
                 <div class="close">×</div>
@@ -26,8 +27,8 @@
                 <input id="Qty" required name="Qty"  class="j_Field form-field" min="0" type="number" placeholder="ProductType Qty">
             </div>
             <div class="row mt-2">
-                <select id="Product" required name="Product" class="j_Field form-field " >
-                    <option value="0">Select Product</option>
+                <select id="Pro_id" required name="Pro_id" class="j_Field form-field " >
+                    <option value="">Select Product</option>
                     <?php
                     $ProModel=new \app\Model\Products\Product();
                     $ProModel->get();
@@ -49,9 +50,9 @@
     <section class="container table-con mt-3 mb-3">
         <div class="warning mt-1 mb-1">
             <i class="fa fa-warning"></i>
-            Warning! If You Delete Any Category  All Sub Categories, Products And Product Images Will Be Deleted Under That Category
+            Warning! If You Delete Any Product Type All Product Images Will Be Deleted Under That Product Type!
         </div>
-        <div class="table-header">Categories</div>
+        <div class="table-header">Product Types</div>
         <div  class="table">
             <div class="thead">
                 <div class="tr">
