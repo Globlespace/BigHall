@@ -7,6 +7,7 @@
     Route::get("/",HomeController."Home.index");
     Route::get("/Category/?curi",CategoryController."Category.index");
     Route::get("/product/?Uri",ProductsController."products.product");
+    Route::get("/cart",CartController."cart.cartindex");
     Route::get("/ThreeGrid/?from",HomeController."Home.ThreeGrid");
     Route::get("/FourGrid/?from",HomeController."Home.FourGrid");
 
@@ -58,4 +59,7 @@
     Route::delete("/admin/Categories/?id",CategoriesController."Categories.CategoryDelete");
     Route::delete("/admin/Products/?id",ProductController."Products.ProductDelete");
     Route::delete("/admin/ProductTypes/?id",ProductTypeController."ProductTypes.ProductTypeDelete");
+
     Route::delete("/admin/ProImages/?id",ProImageController."ProImages.ProImagesDelete");
+
+    echo "404";
