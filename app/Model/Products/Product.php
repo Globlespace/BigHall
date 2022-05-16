@@ -61,6 +61,7 @@ class Product extends Model
             $query.="Tags like '%$tag%' or ";
         }
         $query=trim($query,"or ");
+        $query.=" LIMIT 0,15";
         return $query;
     }
     public function getbyUri($Uri)

@@ -24,7 +24,11 @@
         namefield.addEventListener('keyup',function () {
             flag=false; let uri="";
             let value=this.value.toLowerCase();
-            Allowed=["-","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+            Allowed=[
+                "-","a","b","c","d","e","f","g","h","i","j","k","l","m",
+                "n","o","p","q","r","s","t","u","v","w","x","y","z",
+                "1","2","3","4","5","6","7","8","9"
+            ];
             value=Array.from(value);
             value.forEach(function (a) {
                 Allowed.forEach(function (allowed) {

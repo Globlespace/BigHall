@@ -141,7 +141,7 @@ body {
 
 img {
     width: 100%;
-    height: 100%;
+    /*height: 100%;*/
     object-fit: cover;
     object-position: top;
 }
@@ -187,6 +187,8 @@ main {
 }
 
 .user-icons {
+    display: flex;
+    justify-content: flex-end;
     flex-grow: 1;
     color: white;
     text-align: right;
@@ -489,7 +491,8 @@ main {
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: calc(100vh - 100px);
+   /* height: calc(100vh - 100px);*/
+    height: 100vh;
     align-items: center;
 }
 
@@ -502,7 +505,8 @@ main {
     background-color: white;
 }
 
-.entry-form input {
+.entry-form input,
+.entry-form select{
     padding: 0.7rem;
     margin: 0.7rem 0;
     font-size: 1.2rem;
@@ -510,7 +514,14 @@ main {
     border-radius: 3px;
     border-color: #a88734 #9c7e31 #846a29;
 }
-
+.half{
+    width: 100%;
+}
+.split{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
 .form-header {
     display: flex;
 }
@@ -604,11 +615,13 @@ main {
     }
 
     .entry-form {
+
         width: 70%;
         margin: auto;
     }
 
-    .entry-form input {
+    .entry-form input,
+    .entry-form select {
         margin: 0.2rem 0;
     }
 
@@ -620,7 +633,14 @@ main {
     .form-header label {
         font-size: 1rem;
     }
-
+    .half{
+        width: 49%;
+    }
+    .split{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
 }
 
 /*********************************************Product page************************************/
@@ -651,6 +671,7 @@ main {
 
 .product-slider img {
     width: auto;
+    max-width: 100%;
     max-height: 100%;
     object-fit: cover;
 }
@@ -794,7 +815,90 @@ main {
 .save span {
     font-style: italic;
 }
-
+.profile-admin {
+    display: flex;
+    flex-basis: 15%;
+    justify-content: flex-end;
+    margin-right: 30px;
+    border-left: 1px solid var(--admin-nav-border-line-color);
+}
+.user-name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 10px;
+}
+.user {
+    width: 35px;
+    position: relative;
+    cursor: pointer;
+}
+.user div img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-position: center;
+    object-fit: cover;
+}
+.user>div:first-child{
+    padding: 1px;
+    border-radius: 50%;
+    width: 27px;
+    height: 27px;
+    border: 1px solid white;
+}
+.user-details,.notification-content {
+    overflow: hidden;
+    position: absolute;
+    height: 0;
+    min-height: 0;
+    min-width: 160px;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s linear;
+    background-color: white;
+    box-shadow: 0px 0px 8px 0px gray;
+    z-index: 1000;
+    border-radius: 4px;
+}
+.user-icons a{
+    display: flex;
+    align-items: center;
+}
+.notification-content a:first-child,
+.user-details a:first-child {
+    padding-top: 1.5rem;
+}
+.user-details a ,
+.notification-content a {
+    text-align: left;
+    max-width: 100%;
+    min-width: 50px;
+    padding: 0.7rem;
+    padding-left: 2rem;
+}
+.user-details a:hover,
+.notification-content a:hover {
+    color: white;
+    background-color: rgba(186, 186, 186, 0.64);
+}
+.user-details a i,
+.notification-content a i {
+    color: rgba(0, 0, 0, 0.65);
+    padding-right: 4px;
+}
+.user-details a i:hover ,
+.notification-content a i:hover {
+    color: var(--admin-nav-color-hover);
+}
+.user-details.profile-open{
+    min-height: 150px;
+}
+a {
+    text-decoration: none;
+    color: black;
+}
 .buy-product {
     width: 100%;
     padding: 1rem;
@@ -818,13 +922,14 @@ main {
     margin-top: 0.9rem;
 }
 
-.buy-product-buttons button {
+.buy-product-buttons a {
     width: 100%;
     padding: 0.5rem;
     cursor: pointer;
+    text-align: center;
 }
 
-.buy-product-buttons button:first-child {
+.buy-product-buttons a:first-child {
     border: 1px solid;
     border-radius: 2px;
     outline: none;
@@ -833,7 +938,7 @@ main {
     border-color: #a88734 #9c7e31 #846a29;
 }
 
-.buy-product-buttons button:last-child {
+.buy-product-buttons a:last-child {
     border: 1px solid;
     border-radius: 2px;
     background: linear-gradient(top, #f7dfa5, #f0c14b);

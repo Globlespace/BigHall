@@ -54,8 +54,13 @@ class Categories extends controller
         $CatModel=new Category();
         $this->fillData($request,$CatModel);
         $CatModel->update("id=".$request->id);
-        $CatModel->Success=true;
-        $CatModel->Message="Category Updated Successfully";
+        if($CatModel->mysql_error_no==1062){
+            $CatModel->Success=false;
+            $CatModel->Message="Category Already Exist ";
+        }else{
+            $CatModel->Success=true;
+            $CatModel->Message="Category Updated Successfully";
+        }
         $CatModel->Json();
     }
     function CategoryDelete(Request $request){

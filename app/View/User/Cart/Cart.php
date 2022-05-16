@@ -2,143 +2,81 @@
 <link href="<?= STYLE?>Cart.css" rel="stylesheet" />
     <main>
         <div class="cart-head-line">
-            <h1>Check<spam>out</spam></h1>
+            <h1>Check<span>out</span></h1>
         </div>
         <div class="con-cart">
             <div class="main-cart">
                 <div class="cart-product-list">
                     <div class=" product-head">
-                        <spam>PRODUCT</spam>
+                        <span>PRODUCT</span>
                     </div>
                     <div class="quantity-head">
-                        <spam>QUANTITY</spam>
+                        <span>QUANTITY</span>
                     </div>
                     <div class="price-head">
-                        <spam>PRICE</spam>
+                        <span>PRICE</span>
                     </div>
-                    <div class="cart-product-img">
-                        <img src="<?= IMAGES ?>img-2.jpg" alt="" />
-                    </div>
-                    <div class="cart-description">
-                        <div class="here-dis">
-                            <spam>Some name of items goes here nice dfhfdjhgfdvjhkfdjhk </spam>
-                        </div>
-                        <div class="cart-size">
-                            <div class="c-size">
-                                <h5>Size:</h5>
-                                <spam>XL</spam>
+
+                    <?php
+                        $USERID=$_SESSION["USERID"];
+                        $cart=new \app\Model\Cart\Cart();
+                        $query="SELECT * FROM `cart` c JOIN product_types pt ON c.ProType_id = pt.id WHERE c.User_Id=$USERID;";
+                        $cart->query($query);
+                        while ($cart->next()) {
+                            ?>
+                            <div class="cart-product-img">
+                                <img src="<?= IMAGES ?>img-2.jpg" alt=""/>
                             </div>
-                            <div class="c-brand">
-                                <h5>Brand:</h5>
-                                <spam>Gucci</spam>
+                            <div class="cart-description">
+                                <div class="here-dis">
+                                    <span><?=$cart->Name?></span>
+                                </div>
+                                <!--<div class="cart-size">
+                                    <div class="c-size">
+                                        <h5>Size:</h5>
+                                        <span>XL</span>
+                                    </div>
+                                    <div class="c-brand">
+                                        <h5>Brand:</h5>
+                                        <span>Gucci</span>
+                                    </div>
+                                </div>-->
                             </div>
-                        </div>
-                    </div>
-                    <div class="cart-quantity">
-                        <select onchange="#" class="quantity-dropdown" >
-                            <option value="#">1</option>
-                            <option value="#">2</option>
-                            <option value="#">3</option>
-                            <option value="#">4</option>
-                            <option value="#">5</option>
-                        </select>
-                    </div>
-                    <div class="cart-price">
-                        <div class="cart-total-price">
-                            <spam>₹</spam>
-                            <spam>1900.00</spam>
-                        </div>
-                        <div class="cart-each-price">
-                            <spam>₹</spam>
-                            <spam>900.00 each</spam>
-                        </div>
-                    </div>
-                    <div class="remove-button">
-                        <button type="button" class="cart-btn">Remove</button>
-                    </div>
-                    <!--2nd row-->
-                    <div class="cart-product-img">
-                        <img src="<?= IMAGES ?>star.jpg" alt="" />
-                    </div>
-                    <div class="cart-description">
-                        <div class="here-dis">
-                            <spam>Some name of items goes here nice dfhfdjhgfdvjhkfdjhk </spam>
-                        </div>
-                        <div class="cart-size">
-                            <div class="c-size">
-                                <h5>Size:</h5>
-                                <spam>XL</spam>
+                            <div class="cart-quantity">
+                                <input onchange="CartQtyChange(<?=$cart->ProType_id?>)" type="number" min="1"  style="width: 100px" value="<?=$cart->QtyCart?>" class="quantity-dropdown">
                             </div>
-                            <div class="c-brand">
-                                <h5>Brand:</h5>
-                                <spam>Gucci</spam>
+                            <div class="cart-price">
+                                <div class="cart-total-price">
+                                    <span>₹</span>
+                                    <span><?=$cart->Price*$cart->QtyCart?></span>
+                                </div>
+                                <div class="cart-each-price">
+                                    <span>₹</span>
+                                    <span><?=$cart->Price?> each</span>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="cart-quantity">
-                        <select onchange="#" class="quantity-dropdown" >
-                            <option value="#">1</option>
-                            <option value="#">2</option>
-                            <option value="#">3</option>
-                            <option value="#">4</option>
-                            <option value="#">5</option>
-                        </select>
-                    </div>
-                    <div class="cart-price">
-                        <div class="cart-total-price">
-                            <spam>₹</spam>
-                            <spam>1900.00</spam>
-                        </div>
-                        <div class="cart-each-price">
-                            <spam>₹</spam>
-                            <spam>900.00 each</spam>
-                        </div>
-                    </div>
-                    <div class="remove-button">
-                        <button type="button" class="cart-btn">Remove</button>
-                    </div>
-                    <!--3rd-row-->
-                    <div class="cart-product-img">
-                        <img src="<?= IMAGES ?>img-1.jpg" alt="" />
-                    </div>
-                    <div class="cart-description">
-                        <div class="here-dis">
-                            <spam>Some name of items goes here nice dfhfdjhgfdvjhkfdjhk </spam>
-                        </div>
-                        <div class="cart-size">
-                            <div class="c-size">
-                                <h5>Size:</h5>
-                                <spam>XL</spam>
+                            <div class="remove-button">
+                                <a href="<?=HTTP_HOST?>RemoveFromCart/<?=$cart->ProType_id?>">
+                                    <button type="button" class="cart-btn">Remove</button>
+                                </a>
                             </div>
-                            <div class="c-brand">
-                                <h5>Brand:</h5>
-                                <spam>Gucci</spam>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="cart-quantity">
-                        <select onchange="#" class="quantity-dropdown" >
-                            <option value="#">1</option>
-                            <option value="#">2</option>
-                            <option value="#">3</option>
-                            <option value="#">4</option>
-                            <option value="#">5</option>
-                        </select>
-                    </div>
-                    <div class="cart-price">
-                        <div class="cart-total-price">
-                            <spam>₹</spam>
-                            <spam>1900.00</spam>
-                        </div>
-                        <div class="cart-each-price">
-                            <spam>₹</spam>
-                            <spam>900.00 each</spam>
-                        </div>
-                    </div>
-                    <div class="remove-button">
-                        <button type="button" class="cart-btn">Remove</button>
-                    </div>
+                            <?php
+                        }
+                    ?>
                 </div>
+                <script>
+                    function CartQtyChange(ProType_id) {
+                        var xhttp = new XMLHttpRequest();
+                        xhttp.onreadystatechange = function() {
+                            if (this.readyState == 4 && this.status == 200) {
+                                alert(this.responseText);
+                            }
+                        };
+
+                        xhttp.open("GET","<?=HTTP_HOST?>QtyChangeFromCart/"+ProType_id, true);
+                        xhttp.send();
+                    }
+                </script>
                 <div class="cart-main-bottom">
                     <div class="continue-shopping">
                         <button>Continue Shopping</button>
@@ -149,7 +87,7 @@
                 </div>
             </div>
             <div class="coupon-add">
-                <spam>Have Coupon?</spam>
+                <span>Have Coupon?</span>
                 <div class="coupon-input-btn">
                     <input type="text" id="coupon-input">
                     <button class="coupon-btn">Apply</button>
@@ -160,22 +98,22 @@
                     <div class="cart-total-price">
                         <span>Total Price:</span>
                         <div class="s-t-p">
-                            <spam>₹</spam>
-                            <spam>900.00 </spam>
+                            <span>₹</span>
+                            <span>900.00 </span>
                         </div>
                     </div>
                     <div class="cart-price-discount">
                         <span>Discount:</span>
                         <div class="s-d-p">
-                            <spam>₹</spam>
-                            <spam>900.00 </spam>
+                            <span>₹</span>
+                            <span>900.00 </span>
                         </div>
                     </div>
                     <div class="last-total">
                         <span>Total:</span>
                         <div class="s-l-t">
-                            <spam>₹</spam>
-                            <spam>900.00 </spam>
+                            <span>₹</span>
+                            <span>900.00 </span>
                         </div>
                     </div>
                     <div class="cart-cards-icon">

@@ -4,24 +4,11 @@
     use framework\Routing\Route;
     session_start();
 
-    Route::get("/",HomeController."Home.index");
-    Route::get("/Category/?curi",CategoryController."Category.index");
-    Route::get("/product/?Uri",ProductsController."products.product");
-    Route::get("/cart",CartController."cart.cartindex");
-    Route::get("/ThreeGrid/?from",HomeController."Home.ThreeGrid");
-    Route::get("/FourGrid/?from",HomeController."Home.FourGrid");
-
-    Route::get("/Login",LoginController."Login.LoginPage");
-    Route::post("/Login",LoginController."Login.Login");
-    Route::post("/Register",LoginController."Login.Register");
-
-
-
     /************************* Admin route start's from here ********************/
     Route::get("/admin/Login",AdminLoginController."Login.LoginPage");
     Route::post("/admin/Login",AdminLoginController."Login.Login");
 
-/**************************** Get Admin Pages ****************************/
+    /**************************** Get Admin Pages ****************************/
     Route::middleware("/admin",AdminLoginController."Login.isLoggedin");
 
     Route::get("/admin",DashboardController."Dashboard.dashboardView");
@@ -62,4 +49,35 @@
 
     Route::delete("/admin/ProImages/?id",ProImageController."ProImages.ProImagesDelete");
 
-    echo "404";
+
+/************************* User route start's from here ********************/
+
+    Route::get("/",HomeController."Home.index");
+    Route::get("/Categories",CategoryController."Category.Categories");
+    Route::get("/Category/?Uri",CategoryController."Category.index");
+    Route::get("/Product/?Uri",ProductsController."products.product");
+    Route::get("/cart",CartController."cart.cartindex");
+    Route::get("/ThreeGrid/?from",HomeController."Home.ThreeGrid");
+    Route::get("/FourGrid/?from",HomeController."Home.FourGrid");
+
+    Route::get("/Login",LoginController."Login.LoginPage");
+    Route::get("/Confirm/?Email",LoginController."Login.ConfirmPage");
+
+    Route::post("/Confirm",LoginController."Login.Confirm");
+    Route::post("/Resend",LoginController."Login.Resend");
+    Route::post("/Login",LoginController."Login.Login");
+    Route::post("/Register",LoginController."Login.Register");
+
+    Route::get("/Logout",LoginController."Login.Logout");
+
+    Route::middleware("/",LoginController."Login.Checklogin");
+
+    Route::get("/BuyNow",BuyNowController."BuyNow.BuyNowPage");
+    Route::get("/Cart",CartController."Cart.CartPage");
+    Route::get("/AddToCart/?ProType_id",CartController."Cart.AddToCart");
+    Route::get("/RemoveFromCart/?ProType_id",CartController."Cart.RemoveFromCart");
+    Route::get("/QtyChangeFromCart/?ProType_id",CartController."Cart.QtyChangeFromCart");
+
+
+
+echo "4004";

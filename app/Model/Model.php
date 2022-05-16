@@ -75,6 +75,7 @@ abstract class Model
 
     public function query($query)
     {
+        $this->i=0;
         $this->result = mysqli_query($this->con, $query);
         $this->Message= $query;
         return $this->result;
@@ -83,8 +84,7 @@ abstract class Model
     public function chunk($limit)
     {
         $query = "select * from " . $this->table . " limit $limit";
-
-        $this->result = mysqli_query($this->con, $query);
+        $this->query($query);
     }
 
     public function __call($name_of_function, $arguments)
@@ -102,12 +102,13 @@ abstract class Model
                     break;
             }
             $this->Message= $query;
-            $this->result = mysqli_query($this->con, $query);
+            $this->query($query);
         }
     }
 
     public function next()
     {
+
         if (!empty($this->result)) {
             if (mysqli_num_rows($this->result) > $this->i) {
                 $this->values = mysqli_fetch_assoc($this->result);
@@ -147,7 +148,7 @@ abstract class Model
             $this->columnNames .= ")";
             $this->columnValues .= ")";
             $query = "INSERT INTO `$this->table` $this->columnNames VALUES $this->columnValues";
-            $inserted = mysqli_query($this->con, $query);
+            $inserted = $this->query($query);
             $this->mysql_error = $this->con->error;
             $this->mysql_error_no = $this->con->errno;
             $this->Message= $query;
@@ -176,7 +177,7 @@ abstract class Model
             }
             $this->updateColumns = trim($this->updateColumns, ',');
             $query = "UPDATE `$this->table` SET $this->updateColumns WHERE $columns";
-            $updated = mysqli_query($this->con, $query);
+            $updated = $this->query($query);
             $this->mysql_error = $this->con->error;
             $this->mysql_error_no = $this->con->errno;
             $this->Message= $query;
@@ -203,7 +204,7 @@ abstract class Model
             $this->deleteColunm = trim($this->deleteColunm, " $opprater ");
             $this->deleteColunm .= ";";
             $query = "DELETE FROM `$this->table` WHERE $this->deleteColunm";
-            $deleted = mysqli_query($this->con, $query);
+            $deleted = $this->query($query);
             $this->mysql_error = $this->con->error;
             $this->mysql_error_no = $this->con->errno;
             $this->Message= $query;

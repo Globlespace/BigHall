@@ -30,6 +30,13 @@ function SubmitData(self) {
             getDataBulkNoAppend();
             CloseAddform();
             loading_close();
+            if(a.Success=="true"){
+                Nf.bgcolor="#4e73df";
+                Nf.FooterLineColor="#e74a3b";
+            }else{
+                Nf.bgcolor="#e74a3b";
+                Nf.FooterLineColor="#4e73df";
+            }
             Nf.Notify(a.Message);
         });
     }else {
@@ -39,6 +46,13 @@ function SubmitData(self) {
             getDataBulkNoAppend();
             CloseAddform();
             loading_close();
+            if(a.Success){
+                Nf.bgcolor="#4e73df";
+                Nf.FooterLineColor="#e74a3b";
+            }else{
+                Nf.bgcolor="#e74a3b";
+                Nf.FooterLineColor="#4e73df";
+            }
             Nf.Notify(a.Message);
         });
     }
@@ -93,6 +107,13 @@ function Delete(id) {
                     DataLoadedCount=0;
                     getDataBulkNoAppend();
                     loading_close();
+                    if(result.Success){
+                        Nf.bgcolor="#4e73df";
+                        Nf.FooterLineColor="#e74a3b";
+                    }else{
+                        Nf.bgcolor="#e74a3b";
+                        Nf.FooterLineColor="#4e73df";
+                    }
                     Nf.Notify(result.Message);
                 });
         });

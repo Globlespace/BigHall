@@ -8,6 +8,7 @@
     define('CategoryController',UserController.'Category\\');
     define('ProductsController',UserController.'Products\\');
     define('LoginController',UserController.'Login\\');
+    define('BuyNowController',UserController.'BuyNow\\');
 
 
     /**************************admin Controllers*******************/

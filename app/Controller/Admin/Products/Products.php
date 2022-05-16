@@ -56,8 +56,13 @@ class Products extends controller
         $ProModel=new Product();
         $this->fillData($request,$ProModel);
         $ProModel->update("id=".$request->id);
-        $ProModel->Success=true;
-        $ProModel->Message="Product Updated Successfully";
+        if($ProModel->mysql_error_no==1062){
+            $ProModel->Success=false;
+            $ProModel->Message="Product Already Exist";
+        }else{
+            $ProModel->Success=true;
+            $ProModel->Message="Product Updated Successfully";
+        }
         $ProModel->Json();
     }
     function ProductDelete(Request $request){

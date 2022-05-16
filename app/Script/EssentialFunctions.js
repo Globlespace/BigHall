@@ -59,7 +59,7 @@ class Notifier {
             document.body.appendChild(this.FullNotifier);
         }    }
     #SetDefaultParem(){
-        this.bgcolor="#4e73df";
+        this.bgcolor="yellow";
         this.x="20px";
         this.y="100px";
         this.FooterHeight="3px";
@@ -96,7 +96,13 @@ class Notifier {
         this.#DesignBody();
         this.#DesignFooter();
     }
+    #Update(){
+        this.#DesignFullNotifier();
+        this.#DesignBody();
+        this.#DesignFooter();
+    }
     #DesignFullNotifier(){
+        this.FullNotifier.style.zIndex=10000000;
         this.FullNotifier.classList.add("FullNotifier");
         this.FullNotifier.style.borderBottomLeftRadius="4px";
         this.FullNotifier.style.borderTopLeftRadius="4px";
@@ -149,6 +155,7 @@ class Notifier {
     Notify(Content){
         if(this.isFullyCompelete){
             this.isFullyCompelete=false;
+            this.#Update();
             this.NotifierBody.innerHTML=Content;
             this.#Open();
         }

@@ -5,11 +5,10 @@ namespace app\Model\Login;
 use app\Model\Model;
 
 class Login extends Model {
-
     function isAlreadyExist($email){
-        $query="SELECT * FROM `login` WHERE Email='$email' or NAME ='$email';";
-        $result=mysqli_query(Model::Connection(),$query);
-         if(mysqli_num_rows($result)>0){
+        $query="SELECT * FROM `login` WHERE Email='$email' or NAME ='$email' or Phone ='$email';";
+        $this->query($query);
+         if($this->next()){
              $this->message="Email is Already Exist";
              $this->Code=112;
              $this->success=false;
@@ -17,14 +16,14 @@ class Login extends Model {
          }
          return false;
     }
-    function Register($name,$email,$password,$ConformationCode){
-        $query="INSERT INTO `login` (`Id`, `Name`, `Password`, `Email`, `Active`, `Code`) VALUES (NULL, '$name', '$password', '$email', '0', '$ConformationCode');";
+    function Register($Name,$Email,$Password,$Phone,$City,$Address,$ConformationCode){
+        $query="INSERT INTO `login` (`Id`, `Name`, `Password`, `Email`,`Phone`,`City`,`Address`, `Active`, `Code`) VALUES (NULL, '$Name', '$Password', '$Email','$Phone','$City','$Address','0', '$ConformationCode');";
         return mysqli_query(Model::Connection(),$query);
     }
     function isActvatedUser($email){
         $query="SELECT * FROM `login` WHERE Email='$email' && Active='1';";
-        $result=mysqli_query(Model::Connection(),$query);
-        if(mysqli_num_rows($result)>0){
+        $this->query($query);
+        if($this->next()){
             $this->Message="Email is Activated";
             $this->Code=200;
             $this->Success=true;
@@ -41,35 +40,37 @@ class Login extends Model {
         $mysqli=Model::Connection();
         $results= mysqli_query($mysqli,$query);
         if(mysqli_affected_rows($mysqli)<1){
-            $this->message="Invalid Code";
+            $this->Message="Invalid Code";
             $this->Code=112;
-            $this->success=false;
+            $this->Success=false;
             return false;
         }
+        $this->Message="User Activated!";
         $this->Code=200;
-        $this->success=true;
+        $this->Success=true;
         return true;
     }
     function resendcode($email){
         $query="SELECT * FROM `login` WHERE Email='$email';";
         $result=mysqli_query(Model::Connection(),$query);
+        $this->Success=true;
+        $this->Code=200;
+        $this->Message="Code Send Successfully";
         $row= mysqli_fetch_assoc($result);
         return $row["Code"];
+
     }
     function login($email,$password){
         $query="SELECT * FROM `login` WHERE Email='$email' or Name='$email';";
-        $result=mysqli_query(Model::Connection(),$query);
-
-        $row=mysqli_fetch_assoc($result);
-        if(mysqli_num_rows($result)>0 && check($password,$row["Password"])){
-            return true;
+        $this->query($query);
+        if($this->next()) {
+            if (check($password,$this->Password)) {
+                return true;
+            }
         }
         $this->Message="Invalid Email or Password";
         $this->Code=401;
         $this->Success=false;
         return false;
     }
-
-
-
 }

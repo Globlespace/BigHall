@@ -19,6 +19,10 @@ main{
     flex-grow: 1;
 
 }
+a{
+    text-decoration: none;
+    color: black;
+}
 @media all and (min-width:590px){
     .product{
         width:260px;

@@ -55,8 +55,13 @@ class ProductTypes extends controller
         $ProModel=new product_type();
         $this->fillData($request,$ProModel);
         $ProModel->update("id=".$request->id);
-        $ProModel->Success=true;
-        $ProModel->Message="Product Updated Successfully";
+        if($ProModel->mysql_error_no==1062){
+            $ProModel->Success = false;
+            $ProModel->Message = "ProductType Already Exist";
+        }else {
+            $ProModel->Success = true;
+            $ProModel->Message = "ProductType Updated Successfully";
+        }
         $ProModel->Json();
     }
     function ProductTypeDelete(Request $request){
@@ -72,6 +77,6 @@ class ProductTypes extends controller
         parent::fillData($From, $To);
         $To->Id=$From->values["id"];
         $To->Name=$From->values["ProductType"];
-        $To->Pro_Id=$From->values["Product"];
+        $To->Pro_Id=$From->values["Pro_id"];
     }
 }

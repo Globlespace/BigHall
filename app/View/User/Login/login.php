@@ -1,5 +1,6 @@
 
 <link href="<?=STYLE?>style.css" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script>
     var HTTP="<?=HTTP_HOST?>";
 </script>
@@ -23,9 +24,19 @@
                  <label for="Create">Create account</label>
             </div>
             <form id="registerform" action="<?=HTTP_HOST?>Register" method="post" class="form-main">
-                <input type="text" name="name" placeholder="Name">
-                <input type="email" name="email" class="email" placeholder="Email">
-                <input type="password" name="password" placeholder="Password">
+                <input required type="text" name="name" placeholder="Name">
+                <input required type="email" name="email" class="email" placeholder="Email">
+                <input required type="number" name="phone" class="email" placeholder="Mobile Number">
+
+                <div class="split">
+                    <select required name="city" class="city half" >
+                        <Option value="">City</Option>
+                        <Option value="srinagar">Srinagar</Option>
+                    </select>
+                    <input class="half" type="number" min="111111" max="999999" placeholder="PinCode">
+                </div>
+                <input required type="text" name="address" placeholder="Address">
+                <input required type="password" name="password" placeholder="Password">
                 <input type="submit" id="registersubmit" value="Register">
             </form>
         </div>

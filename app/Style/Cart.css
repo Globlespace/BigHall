@@ -8,28 +8,31 @@
 .cart-head-line h1{
     font-family: "Amazon Ember", Arial, sans-serif;
 }
-.cart-head-line h1 spam{
+.cart-head-line h1 span{
     color:transparent;
     text-shadow: 3px 0 3px #ff1d02;
 }
 .main-cart{
-    margin: 3.5rem;
-    width:60%;
+    width:70%;
 }
 .cart-product-list{
     display:grid;
+    align-items: center;
+    justify-content: space-around;
     border: 1px  solid #ededed;
     border-radius: 5px 5px 0 0;
     padding: 1rem;
-    /*grid-template-columns:repeat(5,1fr);*/
-    grid-template-columns:150px 1fr 1fr 1fr 145px;
+    grid-template-columns:1fr 2fr 1fr 1.3fr 1fr;
     grid-template-rows:50px 1fr;
+}
+.cart-product-list>div{
+    padding: 10px;
 }
 .product-head{
     grid-column-start: 1;
     grid-column-end: 3;
 }
-.product-head spam{
+.product-head span{
     font-family: "Berlin Sans FB";
     color: #7a7a7a;
 }
@@ -37,22 +40,21 @@
     grid-column-start: 4;
     grid-column-end: 6;
 }
-.price-head spam{
+.price-head span{
     font-family: "Berlin Sans FB";
     color: #7a7a7a;
 }
-.quantity-head spam{
+.quantity-head span{
     font-family: "Berlin Sans FB";
     color: #7a7a7a;
 }
 .cart-product-img{
-    margin: 1rem 1rem 1rem 0;
+
     width: 100px;
 }
 .cart-description{
-    margin: 1rem 1rem 1rem 0;
 }
-.cart-description .here-dis spam{
+.cart-description .here-dis span{
     display: -webkit-box;
     -webkit-line-clamp:1;
     -webkit-box-orient: vertical;
@@ -68,10 +70,10 @@
 .c-size, .c-brand{
     display: flex;
 }
-.c-size spam, .c-brand spam{
+.c-size span, .c-brand span{
     margin-left: 5px;
 }
- .c-size h5,.c-size spam , .c-brand  h5,.c-brand spam{
+ .c-size h5,.c-size span , .c-brand  h5,.c-brand span{
      display: flex;
      flex-direction: column;
     font-family: "Amazon Ember", Arial, sans-serif;
@@ -80,17 +82,15 @@
     font-weight: lighter;
 }
  .cart-quantity{
-     margin-top: 1rem;
  }
  .quantity-dropdown{
-     padding:0.7rem 4rem 0.7rem 0.5rem;
+     padding:10px 20px;
      border-radius: 5px;
  }
  .quantity-dropdown:focus{
      outline: none;
  }
  .cart-total-price{
-     margin-top: 1rem;
      display: flex;
      align-items: flex-start;
  }
@@ -100,10 +100,9 @@
      color: rgba(122, 122, 122, 0.97);
  }
  .remove-button{
-     margin-top: 1rem;
  }
  .remove-button button{
-     padding:0.7rem 2rem 0.7rem 2rem;
+     padding:10px 20px;
      border-radius: 5px;
      border: 1px solid rgba(122, 122, 122, 0.97);
  }
@@ -145,74 +144,68 @@
 }   
 .con-cart{
     display: flex;
+    justify-content: space-around;
 }
 .coupon-add{
-    padding: 2rem;
-    margin-top: 3.5rem;
-    height: 150px;
+    padding: 1rem 10px;
+    height: 120px;
     border: 1px solid #ededed;
-    width: 25%;
+    width: 20%;
     border-radius: 5px;
 }
-.coupon-add spam{
+.coupon-add span{
     font-family: Lucida;
 }
 .coupon-input-btn{
-    margin-top: 10px;
+    display: flex;
+    border-radius: 5px;
+    height: 40px;
+    border: 1px solid #7a7a7a ;
     position: relative;
 }
 .coupon-input-btn input{
+    width: 100%;
+    font-size: 1.3rem;
     border-radius: 5px;
-    border: 1px solid #7a7a7a ;
-    padding: 0.6rem;
+    border:none ;
     outline: none;
-    height: 40px;
-    width: 415px !important;
+    text-indent: 10px;
+
 }
 .coupon-btn{
-    border-radius: 0 5px 5px 0;
+    border-radius: 0 3px 3px 0;
     border: none;
     background-color: rgb(0, 110, 255);
-    height: 40px;
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 100px;
-    font-family: "Agency FB";
     font-weight: bold;
     color: white;
+    padding: 5px;
 }
 .coupon-btn:hover{
     background-color: rgb(2, 126, 255);
 }
 .cart-price-div{
     position: absolute;
-    top: 450px;
+    top: 350px;
     width: 20%;
-    right: 275px;
+    right: 3%;
 }
 .cart-price-detail{
     border: 1px solid #e5e5e5;
     border-radius: 5px;
-    padding: 3rem;
+    padding: 1rem 0.7rem ;
 }
-.cart-total-price,.cart-price-discount,.last-total{
-    margin:10px ;
+.cart-price-detail>div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top:10px ;
 }
+
 .cart-price-discount,.last-total{
     display: flex;
 }
-.cart-total-price span{
-    margin-right: 60px;
-}
-.cart-price-discount span{
-    margin-right: 70px;
-}
-.last-total span{
-    margin-right: 100px;
-}
+
 .last-total{
-    padding-bottom: 30px;
     border-bottom: 1px solid #c5c5c5;
 }
 .cart-cards-icon{

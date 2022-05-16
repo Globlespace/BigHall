@@ -10,15 +10,13 @@
                 $type = isset($_GET["pro_type"]) ? $_GET["pro_type"] : 0;
                 $product->getbyUri($Uri);
                 if(!$product->next()){
-                    header("Location: admin/404");
+                    header("Location: ".HTTP_HOST."404");
                 }
                 $product_type->getProductByIdAndProductId($product->id, $type);
                 if(!$product_type->next()){
-                   header("Location: admin/404");
+                   header("Location: ".HTTP_HOST."404");
                 }
-
                 echo $product->Name;
-
                 ?>
             </div>
             <div class="product-slider">
@@ -29,10 +27,10 @@
                     echo '% off </div>';
                 }
                 $i = new \app\Model\Images\Image();
-                $i->get($product->id);
+                $i->get("ProType_id",$product_type->Id);
                 while ($i->next()) {
                     ?>
-                    <img src="<?= $i->image ?>" alt="">
+                    <img src="<?= UP_IMAGES.$i->Image ?>" alt="Product Image">
                     <?php
                 }
                 ?>
@@ -54,13 +52,15 @@
                 <div class="product-varieties myslider-container">
                     <div class="myslider">
                         <?php
-                        $product_type->get("Pro_Id",$product->id);
-
+                        $query="SELECT * FROM `product_types` where Pro_Id=$product->id ORDER by Price ASC ";
+                        $product_type->query($query);
+                        $first=true;
                         while ($product_type->next()) {
+                           $type= $type==0 && $first ? $product_type->Id : $type;
                             ?>
                             <div class="myslider-item">
-                                <a href="<?= HTTP_HOST . 'product/' . $product->URI . '?pro_type=' . $product_type->Id ?>"
-                                   class="product-variety <?= $type == $product_type->Id ? 'selected' : '' ?>">
+                                <a href="<?= HTTP_HOST . 'Product/' . $product->URI . '?pro_type=' . $product_type->Id ?>"
+                                   class="product-variety <?= $type==0 && $first ? "selected" : ( $type == $product_type->Id  ? 'selected' : '') ?>">
                                     <span><?= $product_type->Name; ?></span>
                                     <span class="price"><?= ($product_type->Price);; ?></span>
                                     <span class="<?= $product_type->Qty > 0 ? 'instock' : 'outofstock' ?>">
@@ -76,6 +76,7 @@
                                 </a>
                             </div>
                             <?php
+                            $first=false;
                         }
                         ?>
                     </div>
@@ -141,8 +142,10 @@
 
                 </span>
                 <div class="buy-product-buttons">
-                    <button>Buy Now</button>
-                    <button>Add To Cart</button>
+
+                        <a href="<?=HTTP_HOST?>BuyNow">Buy Now</a>
+
+                        <a href="<?=HTTP_HOST?>AddToCart/<?=$type?>">Add To Cart</a>
                 </div>
             </div>
             <div class="section-style pro-disc">
@@ -159,22 +162,29 @@
                 $youmaylikeProducts = new \app\Model\Products\product();
                 $youmaylikeProducts->getbytags($product->Tags);
                 while ($youmaylikeProducts->next()) {
-                    $i2 = new \app\Model\Images\Image();
-                    $i2->get($youmaylikeProducts->id);
-                    $i2->next();
-                    $product_type2 = new \app\Model\ProductType\product_type();
-                    $product_type2->get($youmaylikeProducts->id);
-                    $product_type2->next();
-                    ?>
-                    <div class="myslider-item">
-                        <div class="YouMayAlsoLike">
-                            <img src="<?= $i2->image ?>">
-                            <a href="<?= HTTP_HOST . "product/" . $youmaylikeProducts->URI ?>"
-                               class="product-name"><?= $youmaylikeProducts->Name ?></a>
-                            <div class="price"><?= $product_type2->Price ?></div>
+                    $product_type2= new \app\Model\ProductType\product_type();
+                    $query="SELECT * FROM `product_types` pt JOIN `images` img on pt.Id=img.ProType_id WHERE pt.Pro_Id=$youmaylikeProducts->id order by img.Id DESC LIMIT 0,1;";
+                    $product_type2->query($query);
+
+                    if($product_type2->next()) {
+                        ?>
+                        <div class="myslider-item">
+                            <style>
+                                a{
+                                    text-decoration: none;
+                                    color: black;
+                                }
+                            </style>
+                            <a href="<?= HTTP_HOST . "Product/" . $youmaylikeProducts->URI ?>" class="YouMayAlsoLike">
+                                <img src="<?= UP_IMAGES.$product_type2->Image ?>">
+                                <div class="product-name">
+                                    <?= $youmaylikeProducts->Name ?>
+                                </div>
+                                <div class="price"><?= $product_type2->Price ?></div>
+                            </a>
                         </div>
-                    </div>
-                    <?php
+                        <?php
+                    }
                 }
                 ?>
 

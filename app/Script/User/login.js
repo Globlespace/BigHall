@@ -30,7 +30,10 @@ $(document).ready(function (){
                     setTimeout( function (){
                         $("#msg").removeClass("success");
                         $("#msg").html('');
-                        location.href=HTTP;
+                        const queryString = window.location.search;
+                        const urlParams = new URLSearchParams(queryString);
+                        const product = urlParams.get('RediredtUri')==null?"":urlParams.get('RediredtUri');
+                        location.href=HTTP+product;
                     },2000);
                 }
             }
