@@ -5,7 +5,7 @@ abstract class Model
 {
     protected $table = "";
     protected $allColumn = array();
-    public $Success = "false", $Message, $Code=200, $columnNames = "", $columnValues = "", $updateColumns = '', $deleteColunm = '', $mysql_error, $mysql_error_no;
+    public $Success = true, $Message, $Code=200, $columnNames = "", $columnValues = "", $updateColumns = '', $deleteColunm = '', $mysql_error, $mysql_error_no;
     protected $result, $i = 0, $currentColumn = 0, $values = array();
     protected $con;  public $json=array(),$Data=array();
 

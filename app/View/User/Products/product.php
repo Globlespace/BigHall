@@ -28,7 +28,7 @@
                 }
                 $i = new \app\Model\Images\Image();
                 $i->get("ProType_id",$product_type->Id);
-                while ($i->next()) {
+                if ($i->next()) {
                     ?>
                     <img src="<?= UP_IMAGES.$i->Image ?>" alt="Product Image">
                     <?php
@@ -143,7 +143,7 @@
                 </span>
                 <div class="buy-product-buttons">
 
-                        <a href="<?=HTTP_HOST?>BuyNow">Buy Now</a>
+                        <a href="<?=HTTP_HOST?>BuyNow/<?=$type?>">Buy Now</a>
 
                         <a href="<?=HTTP_HOST?>AddToCart/<?=$type?>">Add To Cart</a>
                 </div>

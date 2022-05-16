@@ -65,7 +65,7 @@
             <div class="user-name"></div>
             <div class="user">
                 <div onclick="openprofile()">
-                    <img src="<?=IMAGES?>avatar.png" alt="user">
+                    <img src="<?=IMAGES?>avatar.svg" alt="user">
                 </div>
                 <div class="user-details">
                     <a href="http://localhost/Bighall/profile"><i class="fa fa-user"></i>Profile</a>

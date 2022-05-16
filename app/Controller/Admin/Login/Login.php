@@ -31,4 +31,8 @@ class Login extends controller
             exit();
         }
     }
+    public function Logout(){
+        session_destroy();
+        header("Location: ".HTTP_HOST."admin/Login");
+    }
 }

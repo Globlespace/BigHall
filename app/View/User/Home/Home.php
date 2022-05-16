@@ -10,7 +10,7 @@
         for($i=0; mysqli_num_rows($result)>$i; $i++){
             $row=mysqli_fetch_assoc($result);
              ?>
-                <img src="<?=$row["Image"]?>" alt="">
+                <img src="<?=UP_IMAGES.$row["Image"]?>" alt="">
         <?php
         }
         ?>
@@ -19,6 +19,7 @@
         <div class="card">
         </div>
     </section>
+    <section class="bannerSpace"></section>
     <section class="section-style order-timer">
         <div class="timer">
         </div>

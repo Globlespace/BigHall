@@ -17,3 +17,8 @@
     define('Products',Admin.'Products'.DS);
     define('ProductTypes',Admin.'ProductTypes'.DS);
     define('ProImages',Admin.'ProImages'.DS);
+    define('FourGrid',Admin.'FourGrid'.DS);
+    define('ThreeGrid',Admin.'ThreeGrid'.DS);
+    define('Slider',Admin.'Slider'.DS);
+    define('SmallSlider',Admin.'SmallSlider'.DS);
+    define('Orders',Admin.'Orders'.DS);

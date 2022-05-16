@@ -21,5 +21,11 @@
     define('ProductTypeController',AdminController.'ProductTypes\\');
     define('ProImageController',AdminController.'ProImages\\');
 
+    define('ThreeGridController',AdminController.'ThreeGrid\\');
+    define('FourGridController',AdminController.'FourGrid\\');
+    define('SliderController',AdminController.'Slider\\');
+    define('SmallSliderController',AdminController.'SmallSlider\\');
+    define('OrdersController',AdminController.'Orders\\');
+
 
 

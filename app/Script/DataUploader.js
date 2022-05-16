@@ -2,21 +2,31 @@
 let DataLoadedCount=0;
 /************************Server Request Start***********************************/
 async function GetDataById(Uri,id) {
+    Uri=removeLastSpacialChar(Uri);
     return await Ajax("GET",Uri+"/"+id);
 }
 async function getDataFromServerBulk(Uri,DataLoadedCount) {
+    Uri=removeLastSpacialChar(Uri);
     return await Ajax("Get",(Uri+/Bulk/+DataLoadedCount));
 }
 async function InsertData(Uri,Data) {
+    Uri=removeLastSpacialChar(Uri);
     return await Ajax("POST",Uri,Data);
 }
 async function UpdateData(Uri,Data) {
+    Uri=removeLastSpacialChar(Uri);
    return await Ajax("POST",Uri+"/"+Data.id+"/Update",Data);
 }
 async function DeleteData(Uri,id) {
+    Uri=removeLastSpacialChar(Uri);
     return await Ajax("DELETE",Uri+"/"+id);
 }
-
+function removeLastSpacialChar(str) {
+    while (str.endsWith('/') || str.endsWith('?') || str.endsWith('#')) {
+        str=str.slice(0, -1);
+    }
+    return str;
+}
 /*************************Server Request End*************************/
 let Nf=new Notifier();
 function SubmitData(self) {
@@ -30,7 +40,7 @@ function SubmitData(self) {
             getDataBulkNoAppend();
             CloseAddform();
             loading_close();
-            if(a.Success=="true"){
+            if(a.Success){
                 Nf.bgcolor="#4e73df";
                 Nf.FooterLineColor="#e74a3b";
             }else{

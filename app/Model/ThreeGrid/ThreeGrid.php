@@ -3,6 +3,7 @@ namespace app\Model\ThreeGrid;
 
 use app\Model\Categories\Category;
 use app\Model\Model;
+use app\Model\Products\Product;
 
 class ThreeGrid extends Model
 {
@@ -51,4 +52,69 @@ class ThreeGrid extends Model
             <?php
         }
     }
+    function GetThreeGrid($from){
+        $query="select * from ".$this->table." ORDER BY Id desc limit ".$from.",10;";
+        $this->query($query);
+        while ($this->next()){
+            $pro=new Product();
+
+            ?>
+            <div class="tr">
+                <div id="notedittable" name="cid"><?=$this->Id?></div>
+                <div name="cname"><?=$this->Name?></div>
+                <div id="Pro_id_1" name="Pro_id_1">
+                    <?php
+                    $pro->get($this->Pro_id_1);
+                    $pro->next();
+                    echo $pro->Name
+                    ?>
+                </div>
+                <div id="Pro_id_2" name="Pro_id_2">
+                    <?php
+                    $pro->get($this->Pro_id_2);
+                    $pro->next();
+                    echo $pro->Name
+                    ?>
+                </div>
+                <div id="Pro_id_3" name="Pro_id_3">
+                    <?php
+                    $pro->get($this->Pro_id_3);
+                    $pro->next();
+                    echo $pro->Name
+                    ?>
+                </div>
+                <div id="Description" name="Description"><?=$this->Description?></div>
+                <div id="Catid" name="Catid">
+                    <?php
+                    $cat=new \app\Model\Categories\Category();
+                    $cat->get($this->Catid);
+                    $cat->next();
+                    echo $cat->Name
+                    ?>
+                </div>
+                <div class="relative">
+                    <button onclick="EditData(<?=$this->Id?>)" data-title="Edit This Row" class="updaterow btn btn-outline-primary">
+                        <i class="fa fa-pencil-square-o"></i>
+                    </button>
+                    <button data-title="Click to Delete" onclick="Delete(<?=$this->Id?>)" class="delete btn btn-outline-danger">
+                        <i class="fa fa-trash-o"></i>
+                    </button>
+                </div>
+            </div>
+            <?php
+        }
+
+    }
+    function InsertThreeGrid(){
+        $this->insert();
+        if($this->mysql_error_no==1062){
+            $this->Message="ThreeGrid is already in Database";
+            $this->Success=false;
+
+        }else{
+            $this->Message="ThreeGrid inserted Successfully";
+            $this->Success=true;
+        }
+    }
+
 }

@@ -1,4 +1,9 @@
 <@Page>
+<style>
+    html {
+        background-color: white;
+    }
+</style>
 <link href="<?= STYLE?>Category.css" rel="stylesheet" />
 <main>
     <div class="con-heading-one">

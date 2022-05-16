@@ -64,10 +64,19 @@
             <a href="<?= HTTP_HOST?>admin/ProImages"><i class="fa fa-image"></i>Images</a>
         </div>
         <div class="images">
-            <a href="<?= HTTP_HOST?>admin/mailalluser"><i class="fa fa-envelope-o" aria-hidden="true"></i>Product Mail</a>
+            <a href="<?= HTTP_HOST?>admin/Slider"><i class="fa fa-image"></i>Slider</a>
         </div>
-        <div class="slider">
-            <a href="<?= HTTP_HOST?>admin/sliders"><i class="fa fa-sliders"></i>Sliders</a>
+        <div class="images">
+            <a href="<?= HTTP_HOST?>admin/SmallSlider"><i class="fa fa-image"></i>Small Slider</a>
+        </div>
+        <div class="images">
+            <a href="<?= HTTP_HOST?>admin/ThreeGrid"><i class="fa fa-image"></i>ThreeGrid</a>
+        </div>
+        <div class="images">
+            <a href="<?= HTTP_HOST?>admin/FourGrid"><i class="fa fa-image"></i>FourGrid</a>
+        </div>
+        <div class="images">
+            <a href="<?= HTTP_HOST?>admin/Orders"><i class="fa fa-image"></i>Orders</a>
         </div>
 
         <div class="setting">
@@ -113,29 +122,16 @@
                     </div>
                 </section>
               <section class="profile-admin">
-                    <?php
-                   /*$adminloginModel=new \app\Model\adminlogin();
-                    $results=$adminloginModel->get(["admin_img","admin_username"]);*/
-                   $results=false;
-                    ?>
-                    <div class="user-name"><?php
-                       if($results){
-                            echo  $results[0]["admin_username"];
-                        }
-                        ?></div>
+
+                    <div class="user-name"><?=$_SESSION["ADMIN"]?></div>
                     <div class="user">
                 <span onclick="openprofile()">
-                    <img src="
-                    <?php
-                    if($results){
-                        echo UP_IMAGES.$results[0]["admin_img"];
-                    }
-                    ?>" alt="user"/>
+                    <img src="<?=IMAGES?>avatar.svg" alt="user"/>
                 </span>
                         <div class="user-details">
                             <a href="<?=HTTP_HOST?>admin/profile"><i class="fa fa-user"></i>Profile</a>
                             <a href="<?=HTTP_HOST?>admin/setting"><i class="fa fa-gear"></i>Setting</a>
-                            <a href="<?=HTTP_HOST?>adminLoginOut"><i class="fa fa-sign-out"></i>Logout</a>
+                            <a href="<?=HTTP_HOST?>admin/Logout"><i class="fa fa-sign-out"></i>Logout</a>
                         </div>
                     </div>
                 </section>

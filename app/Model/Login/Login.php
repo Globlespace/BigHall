@@ -65,6 +65,9 @@ class Login extends Model {
         $this->query($query);
         if($this->next()) {
             if (check($password,$this->Password)) {
+                $this->Message="Login Successfully!";
+                $this->Code=200;
+                $this->Success=200;
                 return true;
             }
         }

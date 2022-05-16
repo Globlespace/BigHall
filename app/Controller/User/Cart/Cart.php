@@ -49,6 +49,15 @@ class Cart extends controller
 
     }
     function QtyChangeFromCart(Request $request){
+        if($request->qty<=0){
+            return;
+        }
+        $USERID=$_SESSION['USERID'];
+        $cart=new \app\Model\Cart\Cart();
+        $cart->get("`ProType_id`=$request->ProType_id && `User_Id`=$USERID");
+        $cart->next();
+        $cart->QtyCart= $request->qty;
+        $cart->update("`ProType_id`=$request->ProType_id && `User_Id`=$USERID");
 
     }
 }

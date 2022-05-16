@@ -1,5 +1,10 @@
 <@Page>
 <link href="<?= STYLE?>Category.css" rel="stylesheet" />
+<style>
+    html {
+        background-color: white;
+    }
+</style>
 <main>
     <div class="con-heading-one">
         <h1>Products</h1>

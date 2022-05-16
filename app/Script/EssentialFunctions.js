@@ -59,7 +59,7 @@ class Notifier {
             document.body.appendChild(this.FullNotifier);
         }    }
     #SetDefaultParem(){
-        this.bgcolor="yellow";
+        this.bgcolor="#4e73df";
         this.x="20px";
         this.y="100px";
         this.FooterHeight="3px";
